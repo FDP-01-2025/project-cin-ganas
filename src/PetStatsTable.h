@@ -1,29 +1,9 @@
-#include <iostream>
+#include <string>
 using namespace std;
 
-/**
- * This script will show the pet stats in a table
- */
-void ShowPetStatsTable(string pet, string name, int happiness, int energy, int hunger)
-{
-    cout << R"(
- ________              __                      __  __              __      __                               
-/        |            /  |                    /  |/  |            /  |    /  |                              
-$$$$$$$$/   _______  _$$ |_     ______    ____$$ |$$/   _______  _$$ |_   $$/   _______   ______    _______ 
-$$ |__     /       |/ $$   |   /      \  /    $$ |/  | /       |/ $$   |  /  | /       | /      \  /       |
-$$    |   /$$$$$$$/ $$$$$$/    $$$$$$  |/$$$$$$$ |$$ |/$$$$$$$/ $$$$$$/   $$ |/$$$$$$$/  $$$$$$  |/$$$$$$$/ 
-$$$$$/    $$      \   $$ | __  /    $$ |$$ |  $$ |$$ |$$      \   $$ | __ $$ |$$ |       /    $$ |$$      \ 
-$$ |_____  $$$$$$  |  $$ |/  |/$$$$$$$ |$$ \__$$ |$$ | $$$$$$  |  $$ |/  |$$ |$$ \_____ /$$$$$$$ | $$$$$$  |
-$$       |/     $$/   $$  $$/ $$    $$ |$$    $$ |$$ |/     $$/   $$  $$/ $$ |$$       |$$    $$ |/     $$/ 
-$$$$$$$$/ $$$$$$$/     $$$$/   $$$$$$$/  $$$$$$$/ $$/ $$$$$$$/     $$$$/  $$/  $$$$$$$/  $$$$$$$/ $$$$$$$/                                                                                               
-                   
+#ifndef PET_STATS_TABLE_H
+#define PET_STATS_TABLE_H
 
-)";
-    cout << "+-------------------------------+\n";
-    cout << "  - Mascota: " << pet << "\n";
-    cout << "  - Nombre: " << name << "\n";
-    cout << "  - Felicidad: " << happiness << "\n";
-    cout << "  - Energia: " << energy << "\n";
-    cout << "  - Hambre: " << hunger << "\n";
-    cout << "+-------------------------------+\n";
-}
+void ShowPetStatsTable(string pet, string name, int happiness, int energy, int hunger);
+
+#endif

@@ -1,39 +1,7 @@
-#include <iostream>
-using namespace std;
+#ifndef PETS_ASCII_H
+#define PETS_ASCII_H
 
-/**
- * This script will show the pets as an ASCII art
- */
+void ShowOwl();
+void ShowSquirrel();
 
-void ShowOwl()
-{
-    cout << R"(
-                __              __
-                \ `-._......_.-` /
-                 `.  '.    .'  .'
-                  //  _`\/`_  \\
-                 ||  /\O||O/\  ||
-                 |\  \_/||\_/  /|
-                 \ '.   \/   .' /
-                 / ^ `'~  ~'`   \
-                /  _-^_~ -^_ ~-  |
-                | / ^_ -^_- ~_^\ |
-                | |~_ ^- _-^_ -| |
-                | \  ^-~_ ~-_^ / |
-                \_/;-.,____,.-;\_/
-         ==========(_(_(==)_)_)=========
-    )";
-}
-
-void ShowSquirrel()
-{
-    cout << R"(
-                 (\__/)  .~    ~. ))
-                 /O O  ./      .'
-                {O__,   \    {
-                  / .  . )    \
-                  |-| '-' \    }
-                 .(   _(   )_.'
-                '---.~_ _ _&    
-    )";
-}
+#endif

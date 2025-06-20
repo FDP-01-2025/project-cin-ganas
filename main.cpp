@@ -1,8 +1,6 @@
 #include <iostream>
 using namespace std;
 #include "src/StartScreen.h"
-#include "src/PetsASCII.h"
-#include "src/PetStatsTable.h"
 
 // Define the Struct of the Pet
 struct Pet
