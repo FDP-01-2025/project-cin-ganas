@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cctype>
 using namespace std;
 #include "CreditsScreen.h"
 #include "StartScreen.h"
@@ -41,12 +42,12 @@ Presiona la tecla "E" para Regresar:
     {
         cin >> userOption;
 
-        if (userOption != 'E')
+        if (toupper(userOption) != 'E')
         {
             cout << "Por Favor. Presione la tecla \"E\" para Regresar.\n";
         }
-    } while (userOption != 'E');
+    } while (toupper(userOption) != 'E');
 
-    // If the key pressed is 0, the go to the start screen
+    // If the key pressed is E, then go back to the start screen
     ShowStartScreen();
 }
