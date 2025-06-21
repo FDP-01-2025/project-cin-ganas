@@ -3,6 +3,7 @@
 using namespace std;
 #include "StartScreen.h"
 #include "CreditsScreen.h"
+#include "IntValidation.h"
 
 /**
  * This Script will show the Start Screen and it will serve as the handler for the Start Menu
@@ -34,20 +35,23 @@ void ShowStartScreen()
 Ingresa tu Opcion: 
 )";
 
-    cin >> userOption;
-
-    // Validate the user's option
-    switch (userOption)
+    do
     {
-    case 1:
-        break;
-    case 2:
-        // Go to the Credits Screen
-        system("cls");
-        ShowCreditsScreen();
-        break;
-    default:
-        cout << "Por Favor. Ingrese una Opcion Valida\n";
-        break;
-    }
+        userOption = validateInt(); // Ask the user for an option (must be an int)
+
+        switch (userOption)
+        {
+        case 1:
+            // Play
+            break;
+        case 2:
+            // Go to the Credits Screen
+            system("cls");
+            ShowCreditsScreen();
+            break;
+        default:
+            cout << "Por Favor. Ingrese una Opcion Valida:\n";
+            break;
+        }
+    } while (userOption < 1 || userOption > 2);
 }

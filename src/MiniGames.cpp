@@ -29,16 +29,16 @@ void MiniGames() // shows the mini game menu
                       | 2. Trivia UCA.            |
                       | 3. Ordenar la secuencia.  |
                       | 4. Explorar el campus.    |
-                      | 5. Regresar a tu Tamauca. |
+                      | 5. Regresar a tu TamaUCA. |
                       +---------------------------+)";
 
         cin >> option;
-        if (cin.fail()) //if cin fails, this condition becomes true
+        if (cin.fail())                                          // if cin fails, this condition becomes true
         {                                                        // clears data type errors
             cin.clear();                                         // clears the error
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // clears buffer
             cout << "Entrada invalida. Vuelve a intentar con un numero valido.";
-            system("pause"); //makes the user able to see the message
+            system("pause"); // makes the user able to see the message
             continue;
         }
 
