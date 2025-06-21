@@ -67,9 +67,9 @@ void ShowOwlStory() {
 
     // Story text explaining the owl's challenge
     cout << " Este es el buho Sabio, estudiante en Ingenieria Informatica.\n";
-    cout << "Pero... esta en peligro de reprobar su clase 😨\n";
+    cout << "Pero... esta en peligro de reprobar su clase \n";
     cout << "Para aprobar necesita pasar una ultima prueba de memoria...\n";
-    cout << "¡Ayudalo a recordar los numeros correctamente y salvar su nota!\n\n";
+    cout << "Ayudalo a recordar los numeros correctamente y salvar su nota!\n\n";
 
     // Wait for user to press ENTER before starting
     cout << "Presiona ENTER para comenzar...";
@@ -119,7 +119,7 @@ void PlayArrangeSequence() {
 
     // Show result based on whether user was correct
     if (acerto) {
-        cout << "\n🎉 ¡Excelente! Has salvado al buho y aprobado la clase.\n";
+        cout << "\n Excelente, Has salvado al buho y aprobado la clase.\n";
     } else {
         cout << "\n Fallaste... el buho reprobo :(\n";
         cout << "Los numeros correctos eran: ";
@@ -130,7 +130,7 @@ void PlayArrangeSequence() {
     }
 
     // Wait for user to press ENTER to return
-    cout << "\nPresiona ENTER para volver al menú...";
+    cout << "\nPresiona ENTER para volver al menu...";
     cin.ignore();  // Clear newline character left in buffer
     cin.get();     // Wait for ENTER
     system("cls"); // Clear screen before returning
