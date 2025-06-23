@@ -1,15 +1,15 @@
-// ArrangeSequence.cpp
-#include <iostream>     // For input/output
-#include <cstdlib>      // For rand(), srand()
-#include <ctime>        // For time()
-#include <windows.h>    // For Sleep()
-#include <limits>       // For input validation
+#include <iostream>  // For input/output
+#include <cstdlib>   // For rand(), srand()
+#include <ctime>     // For time()
+#include <windows.h> // For Sleep()
+#include <limits>    // For input validation
 #include "ArrangeSequence.h"
-
+#include "IntValidation.h"
 using namespace std;
 
 // Displays ASCII banner with the game title
-void ShowArrangeSequenceTitle() {
+void ShowArrangeSequenceTitle()
+{
     cout << R"(
                                   __       __  ________  __       __   ______                                   __ 
                                  /  \     /  |/        |/  \     /  | /      \                                 /  |
@@ -24,27 +24,14 @@ void ShowArrangeSequenceTitle() {
                                                                                                                     
     )" << "\n";
 
-    cout << "                           Welcome to MEMO-OWL — Memory Challenge Game\n" << endl;
+    cout << "                           Welcome to MEMO-OWL — Memory Challenge Game\n"
+         << endl;
     Sleep(2000); // Pause to let player read the title
 }
 
-// Validates integer input from user
-int validateInt() {
-    int number;
-    while (true) {
-        cin >> number;
-        if (cin.fail()) {
-            cin.clear(); // Clear the error flag
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
-            cout << "❗ Invalid input. Please enter an integer: ";
-        } else {
-            return number;
-        }
-    }
-}
-
 // Function to display the owl story and ASCII art
-void ShowOwlStory() {
+void ShowOwlStory()
+{
     cout << R"(
                 __              __
                 \ `-._......_.-` /
@@ -77,52 +64,61 @@ void ShowOwlStory() {
 }
 
 // Main function to play the memory game
-void PlayArrangeSequence() {
-    const int N = 4;        // Number of numbers to memorize
-    int numeros[N];         // Array to store random numbers
-    int respuesta[N];       // Array to store user input
+void PlayArrangeSequence()
+{
+    const int N = 4;  // Number of numbers to memorize
+    int numeros[N];   // Array to store random numbers
+    int respuesta[N]; // Array to store user input
 
-    ShowArrangeSequenceTitle();  // Show the game title
-    ShowOwlStory();              // Show intro story
+    ShowArrangeSequenceTitle(); // Show the game title
+    ShowOwlStory();             // Show intro story
 
-    srand(time(0));              // Seed random number generator
+    srand(time(0)); // Seed random number generator
 
     cout << "Memoriza los siguientes " << N << " numeros:\n";
 
     // Generate and display random numbers
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++)
+    {
         numeros[i] = rand() % 100; // Random number between 0–99
         cout << numeros[i] << " "; // Print number to screen
     }
     cout << endl;
 
-    Sleep(5000);    // Wait 5 seconds to let the user memorize
-    system("cls");  // Clear screen
+    Sleep(5000);   // Wait 5 seconds to let the user memorize
+    system("cls"); // Clear screen
 
     // Prompt the user to enter the numbers they memorized
     cout << "Ingresa los " << N << " numeros que viste, uno por uno:\n";
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++)
+    {
         cout << "Numero #" << i + 1 << ": ";
-        respuesta[i] = validateInt();  // Safe input with validation
+        respuesta[i] = validateInt(); // Safe input with validation
     }
 
     // Check if user's input matches the original sequence
     bool acerto = true;
-    for (int i = 0; i < N; i++) {
-        if (respuesta[i] != numeros[i]) {
-            acerto = false;  // If any number is incorrect, mark as failure
+    for (int i = 0; i < N; i++)
+    {
+        if (respuesta[i] != numeros[i])
+        {
+            acerto = false; // If any number is incorrect, mark as failure
             break;
         }
     }
 
     // Show result based on whether user was correct
-    if (acerto) {
+    if (acerto)
+    {
         cout << "\n Excelente, Has salvado al buho y aprobado la clase.\n";
-    } else {
+    }
+    else
+    {
         cout << "\n Fallaste... el buho reprobo :(\n";
         cout << "Los numeros correctos eran: ";
-        for (int i = 0; i < N; i++) {
-            cout << numeros[i] << " ";  // Show correct sequence
+        for (int i = 0; i < N; i++)
+        {
+            cout << numeros[i] << " "; // Show correct sequence
         }
         cout << endl;
     }

@@ -3,5 +3,6 @@
 
 void ShowOwl();
 void ShowSquirrel();
+void ShowParrot();
 
 #endif

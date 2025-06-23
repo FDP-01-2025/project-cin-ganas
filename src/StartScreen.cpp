@@ -4,6 +4,8 @@ using namespace std;
 #include "StartScreen.h"
 #include "CreditsScreen.h"
 #include "IntValidation.h"
+#include "SavingSystem.h"
+#include "CreatePetScreen.h"
 
 /**
  * This Script will show the Start Screen and it will serve as the handler for the Start Menu
@@ -42,7 +44,16 @@ Ingresa tu Opcion:
         switch (userOption)
         {
         case 1:
-            // Play
+            // Verify if there's some progress
+            if (FileExist())
+            {
+                // Load the data and go to the game screen
+            }
+            else
+            {
+                // Create a new Pet
+                ShowCreatePetScreen();
+            }
             break;
         case 2:
             // Go to the Credits Screen

@@ -3,7 +3,7 @@
 #include "Pet.h"
 using namespace std;
 
-void Save(const Pet &p) //writes into a txt file the pet's variables
+void Save(const Pet &p) // writes into a txt file the pet's variables
 {
     ofstream savefile("save.txt");
     savefile << p.pet << "\n";
@@ -15,7 +15,7 @@ void Save(const Pet &p) //writes into a txt file the pet's variables
     savefile.close();
 }
 
-Pet Load() //reads from the txt file the pet's stats
+Pet Load() // reads from the txt file the pet's stats
 {
     Pet p;
     ifstream savefile("save.txt");
@@ -28,4 +28,11 @@ Pet Load() //reads from the txt file the pet's stats
 
     savefile.close();
     return p;
+}
+
+// This function checks if the file exists
+bool FileExist()
+{
+    ifstream file("save.txt"); // Checks if the file "save.txt" exist
+    return file.good();        // Returns true if the file exists
 }
