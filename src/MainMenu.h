@@ -1,6 +1,7 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
+#include "Pet.h"
 
-void MainMenu();
+void MainMenu(Pet &p);
 
 #endif

@@ -40,7 +40,7 @@ void MainMenu(Pet &p)
         +---------------------+)"
          << endl;
 
-        do
+    do
     {
         option = validateInt();
         switch (option)

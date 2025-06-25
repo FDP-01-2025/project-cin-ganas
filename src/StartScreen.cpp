@@ -6,6 +6,7 @@ using namespace std;
 #include "IntValidation.h"
 #include "SavingSystem.h"
 #include "CreatePetScreen.h"
+#include "MainMenu.h"
 
 /**
  * This Script will show the Start Screen and it will serve as the handler for the Start Menu
@@ -48,6 +49,8 @@ Ingresa tu Opcion:
             if (FileExist())
             {
                 // Load the data and go to the game screen
+                Pet savedPet = Load(); // Loading the saved Pet
+                MainMenu(savedPet);    // Go to the main menu with the saved pet
             }
             else
             {
