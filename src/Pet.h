@@ -13,6 +13,7 @@ struct Pet
     int happiness = 0;
     int energy = 0;
     int hunger = 0;
+    int coins = 15;
     bool isAlive; 
 };
 
