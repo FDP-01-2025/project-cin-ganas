@@ -1,15 +1,14 @@
-#include <iostream>  // For input/output
-#include <cstdlib>   // For rand(), srand()
-#include <ctime>     // For time()
-#include <windows.h> // For Sleep()
-#include <limits>    // For input validation
+#include <iostream>     // Para entrada/salida
+#include <cstdlib>      // Para rand(), srand()
+#include <ctime>        // Para time()
+#include <windows.h>    // Para Sleep()
+#include <limits>       // Para validacion de entrada
 #include "ArrangeSequence.h"
-#include "IntValidation.h"
+
 using namespace std;
 
-// Displays ASCII banner with the game title
-void ShowArrangeSequenceTitle()
-{
+// Muestra el titulo en ASCII del juego
+void ShowArrangeSequenceTitle() {
     cout << R"(
                                   __       __  ________  __       __   ______                                   __ 
                                  /  \     /  |/        |/  \     /  | /      \                                 /  |
@@ -24,14 +23,28 @@ void ShowArrangeSequenceTitle()
                                                                                                                     
     )" << "\n";
 
-    cout << "                           Welcome to MEMO-OWL — Memory Challenge Game\n"
-         << endl;
-    Sleep(2000); // Pause to let player read the title
+    cout << "                           Bienvenido a MEMO-OWL - Juego de Memoria\n" << endl;
+    Sleep(2000); // Espera para que el jugador lea
 }
 
-// Function to display the owl story and ASCII art
-void ShowOwlStory()
-{
+// Validacion segura de enteros
+int validateInt() {
+    int number;
+    while (true) {
+        cin >> number;
+        if (cin.fail()) {
+            cin.clear(); // Limpia el error
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Descarta entrada mala
+            cout << "Entrada invalida. Ingresa un numero entero: ";
+        } else {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            return number;
+        }
+    }
+}
+
+// Muestra la historia del buho y arte ASCII
+void ShowOwlStory() {
     cout << R"(
                 __              __
                 \ `-._......_.-` /
@@ -50,82 +63,66 @@ void ShowOwlStory()
 
     )" << endl;
 
-    // Story text explaining the owl's challenge
-    cout << " Este es el buho Sabio, estudiante en Ingenieria Informatica.\n";
-    cout << "Pero... esta en peligro de reprobar su clase \n";
-    cout << "Para aprobar necesita pasar una ultima prueba de memoria...\n";
-    cout << "Ayudalo a recordar los numeros correctamente y salvar su nota!\n\n";
+    cout << " Este es el buho Sabio, estudiante de Ingenieria Informatica.\n";
+    cout << "Pero esta en peligro de reprobar la clase.\n";
+    cout << "Para aprobar necesita pasar una ultima prueba de memoria.\n";
+    cout << "Ayudalo a recordar los numeros correctamente y salvar su nota.\n\n";
 
-    // Wait for user to press ENTER before starting
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout << "Presiona ENTER para comenzar...";
-    cin.ignore();  // Clears previous input
-    cin.get();     // Waits for ENTER
-    system("cls"); // Clears screen (Windows only)
+    cin.get();
+    system("cls");
 }
 
-// Main function to play the memory game
-void PlayArrangeSequence()
-{
-    const int N = 4;  // Number of numbers to memorize
-    int numeros[N];   // Array to store random numbers
-    int respuesta[N]; // Array to store user input
+// Juego principal
+void PlayArrangeSequence() {
+    const int N = 4;        // Cantidad de numeros
+    int numeros[N];         // Numeros generados
+    int respuesta[N];       // Respuesta del usuario
 
-    ShowArrangeSequenceTitle(); // Show the game title
-    ShowOwlStory();             // Show intro story
+    ShowArrangeSequenceTitle();  // Titulo
+    ShowOwlStory();              // Historia
 
-    srand(time(0)); // Seed random number generator
+    srand(time(0));              // Semilla
 
     cout << "Memoriza los siguientes " << N << " numeros:\n";
 
-    // Generate and display random numbers
-    for (int i = 0; i < N; i++)
-    {
-        numeros[i] = rand() % 100; // Random number between 0–99
-        cout << numeros[i] << " "; // Print number to screen
+    for (int i = 0; i < N; i++) {
+        numeros[i] = rand() % 100;
+        cout << numeros[i] << " ";
     }
     cout << endl;
 
-    Sleep(5000);   // Wait 5 seconds to let the user memorize
-    system("cls"); // Clear screen
+    Sleep(5000);
+    system("cls");
 
-    // Prompt the user to enter the numbers they memorized
     cout << "Ingresa los " << N << " numeros que viste, uno por uno:\n";
-    for (int i = 0; i < N; i++)
-    {
+    for (int i = 0; i < N; i++) {
         cout << "Numero #" << i + 1 << ": ";
-        respuesta[i] = validateInt(); // Safe input with validation
+        respuesta[i] = validateInt();
     }
 
-    // Check if user's input matches the original sequence
     bool acerto = true;
-    for (int i = 0; i < N; i++)
-    {
-        if (respuesta[i] != numeros[i])
-        {
-            acerto = false; // If any number is incorrect, mark as failure
+    for (int i = 0; i < N; i++) {
+        if (respuesta[i] != numeros[i]) {
+            acerto = false;
             break;
         }
     }
 
-    // Show result based on whether user was correct
-    if (acerto)
-    {
-        cout << "\n Excelente, Has salvado al buho y aprobado la clase.\n";
-    }
-    else
-    {
-        cout << "\n Fallaste... el buho reprobo :(\n";
+    if (acerto) {
+        cout << "\nMuy bien. Has salvado al buho y aprobado la clase.\n";
+    } else {
+        cout << "\nFallaste. El buho reprobo.\n";
         cout << "Los numeros correctos eran: ";
-        for (int i = 0; i < N; i++)
-        {
-            cout << numeros[i] << " "; // Show correct sequence
+        for (int i = 0; i < N; i++) {
+            cout << numeros[i] << " ";
         }
         cout << endl;
     }
 
-    // Wait for user to press ENTER to return
     cout << "\nPresiona ENTER para volver al menu...";
-    cin.ignore();  // Clear newline character left in buffer
-    cin.get();     // Wait for ENTER
-    system("cls"); // Clear screen before returning
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get();
+    system("cls");
 }
