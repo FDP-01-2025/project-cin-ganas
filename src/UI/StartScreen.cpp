@@ -5,6 +5,7 @@ using namespace std;
 #include "CreditsScreen.h"
 #include "../util/IntValidation.h"
 #include "../util/SavingSystem.h"
+#include "Instructions.h"
 #include "CreatePetScreen.h"
 #include "MainMenu.h"
 
@@ -32,7 +33,8 @@ void ShowStartScreen()
 
                                           +---------------------------+
                                           | 1. Jugar                  |
-                                          | 2. Ver Creditos           |
+                                          | 2. Ver Instrucciones      |
+                                          | 3. Ver Creditos           |
                                           +---------------------------+
 
 Ingresa tu Opcion: 
@@ -59,6 +61,11 @@ Ingresa tu Opcion:
             }
             break;
         case 2:
+            // Go to the Instructions Screen
+            system("cls");
+            ShowInstructions();
+            break;
+        case 3:
             // Go to the Credits Screen
             system("cls");
             ShowCreditsScreen();

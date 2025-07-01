@@ -4,66 +4,52 @@
 #include <windows.h>    // Para Sleep()
 #include <limits>       // Para validacion de entrada
 #include "ArrangeSequence.h"
+#include "../util/IntValidation.h"
 
 using namespace std;
 
 // Muestra el titulo en ASCII del juego
 void ShowArrangeSequenceTitle() {
+    system("cls");
     cout << R"(
-                                  __       __  ________  __       __   ______                                   __ 
-                                 /  \     /  |/        |/  \     /  | /      \                                 /  |
-                                 $$  \   /$$ |$$$$$$$$/ $$  \   /$$ |/$$$$$$  |          ______   __   __   __ $$ |
-                                 $$$  \ /$$$ |$$ |__    $$$  \ /$$$ |$$ |  $$ | ______  /      \ /  | /  | /  |$$ |
-                                 $$$$  /$$$$ |$$    |   $$$$  /$$$$ |$$ |  $$ |/      |/$$$$$$  |$$ | $$ | $$ |$$ |
-                                 $$ $$ $$/$$ |$$$$$/    $$ $$ $$/$$ |$$ |  $$ |$$$$$$/ $$ |  $$ |$$ | $$ | $$ |$$ |
-                                 $$ |$$$/ $$ |$$ |_____ $$ |$$$/ $$ |$$ \__$$ |        $$ \__$$ |$$ \_$$ \_$$ |$$ |
-                                 $$ | $/  $$ |$$       |$$ | $/  $$ |$$    $$/         $$    $$/ $$   $$   $$/ $$ |
-                                 $$/      $$/ $$$$$$$$/ $$/      $$/  $$$$$$/           $$$$$$/   $$$$$/$$$$/  $$/ 
+                       __       __  ________  __       __   ______                                   __ 
+                      /  \     /  |/        |/  \     /  | /      \                                 /  |
+                      $$  \   /$$ |$$$$$$$$/ $$  \   /$$ |/$$$$$$  |          ______   __   __   __ $$ |
+                      $$$  \ /$$$ |$$ |__    $$$  \ /$$$ |$$ |  $$ | ______  /      \ /  | /  | /  |$$ |
+                      $$$$  /$$$$ |$$    |   $$$$  /$$$$ |$$ |  $$ |/      |/$$$$$$  |$$ | $$ | $$ |$$ |
+                      $$ $$ $$/$$ |$$$$$/    $$ $$ $$/$$ |$$ |  $$ |$$$$$$/ $$ |  $$ |$$ | $$ | $$ |$$ |
+                      $$ |$$$/ $$ |$$ |_____ $$ |$$$/ $$ |$$ \__$$ |        $$ \__$$ |$$ \_$$ \_$$ |$$ |
+                      $$ | $/  $$ |$$       |$$ | $/  $$ |$$    $$/         $$    $$/ $$   $$   $$/ $$ |
+                      $$/      $$/ $$$$$$$$/ $$/      $$/  $$$$$$/           $$$$$$/   $$$$$/$$$$/  $$/ 
                                                                                                                     
                                                                                                                     
     )" << "\n";
 
-    cout << "                           Bienvenido a MEMO-OWL - Juego de Memoria\n" << endl;
+    cout << "                                          Bienvenido a MEMO-OWL - Juego de Memoria\n" << endl;
     Sleep(2000); // Espera para que el jugador lea
-}
-
-// Validacion segura de enteros
-int validateInt() {
-    int number;
-    while (true) {
-        cin >> number;
-        if (cin.fail()) {
-            cin.clear(); // Limpia el error
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Descarta entrada mala
-            cout << "Entrada invalida. Ingresa un numero entero: ";
-        } else {
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            return number;
-        }
-    }
 }
 
 // Muestra la historia del buho y arte ASCII
 void ShowOwlStory() {
     cout << R"(
-                __              __
-                \ `-._......_.-` /
-                 `.  '.    .'  .'
-                  //  _`\/`_  \\
-                 ||  /\O||O/\  ||
-                 |\  \_/||\_/  /|
-                 \ '.   \/   .' /
-                 / ^ `'~  ~'`   \
-                /  _-^_~ -^_ ~-  |
-                | / ^_ -^_- ~_^\ |
-                | |~_ ^- _-^_ -| |
-                | \  ^-~_ ~-_^ / |
-                \_/;-.,____,.-;\_/
-         ==========(_(_(==)_)_)=========
+                                                       __              __
+                                                       \ `-._......_.-` /
+                                                        `.  '.    .'  .'
+                                                         //  _`\/`_  \\
+                                                        ||  /\O||O/\  ||
+                                                        |\  \_/||\_/  /|
+                                                        \ '.   \/   .' /
+                                                        / ^ `'~  ~'`   \
+                                                       /  _-^_~ -^_ ~-  |
+                                                       | / ^_ -^_- ~_^\ |
+                                                       | |~_ ^- _-^_ -| |
+                                                       | \  ^-~_ ~-_^ / |
+                                                       \_/;-.,____,.-;\_/
+                                                ==========(_(_(==)_)_)=========
 
-    )" << endl;
+)" << endl;
 
-    cout << " Este es el buho Sabio, estudiante de Ingenieria Informatica.\n";
+    cout << "Este es el buho Sabio, estudiante de Ingenieria Informatica.\n";
     cout << "Pero esta en peligro de reprobar la clase.\n";
     cout << "Para aprobar necesita pasar una ultima prueba de memoria.\n";
     cout << "Ayudalo a recordar los numeros correctamente y salvar su nota.\n\n";
@@ -122,7 +108,7 @@ void PlayArrangeSequence() {
     }
 
     cout << "\nPresiona ENTER para volver al menu...";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    //cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.get();
     system("cls");
 }

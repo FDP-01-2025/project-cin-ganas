@@ -154,6 +154,7 @@ void TriviaUCA()
     system("cls");
     ShowTriviaUCATitle();
     cout << "\n                   +--------------------------------------------------------------------------------+\n";
-    cout << "                   Puntaje Final: " << score << "\n";
+    cout << "                   Puntaje Final: " << score << " Preguntas Contestadas Correctamente.\n";
     cout << "                   +--------------------------------------------------------------------------------+\n\n";
+    Sleep(5000);
 }

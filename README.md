@@ -31,7 +31,7 @@ TamaUCA es un juego al estilo de _Tamagotchi_ inspirado en la UCA donde cuidas a
 1. Clona este repositorio en tu máquina local:
 
    ```bash
-   git clone [https://github.com/FDP-01-2025/project-cin-ganas.git]
+   git clone https://github.com/FDP-01-2025/project-cin-ganas.git
    ```
 
 2. Ingresa en el folder del proyecto
@@ -43,7 +43,7 @@ TamaUCA es un juego al estilo de _Tamagotchi_ inspirado en la UCA donde cuidas a
 3. Compila el programa
 
    ```bash
-   g++ main.cpp -o main
+   g++ src/util/*.cpp src/pet/*.cpp src/UI/*.cpp src/minigames/*.cpp main.cpp -o main
    ```
 
 4. Ejecuta el programa
