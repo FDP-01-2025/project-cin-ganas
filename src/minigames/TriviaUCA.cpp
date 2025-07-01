@@ -4,7 +4,7 @@ using namespace std;
 #include <ctime>
 #include <windows.h>
 #include "TriviaUCA.h"
-#include "IntValidation.h"
+#include "../util/IntValidation.h"
 
 // Define the Struct that each question will have
 struct TriviaQuestion

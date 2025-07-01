@@ -1,4 +1,4 @@
-// ArrangeSequence.h
+// minigames/ArrangeSequence.h
 #ifndef ARRANGE_SEQUENCE_H
 #define ARRANGE_SEQUENCE_H
 

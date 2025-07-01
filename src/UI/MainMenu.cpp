@@ -1,11 +1,11 @@
 #include <iostream>
 #include <cstdlib>
-#include "Pet.h"
-#include "SavingSystem.h"
+#include "../pet/Pet.h"
+#include "../util/SavingSystem.h"
 #include "CreatePetScreen.h"
-#include "PetsASCII.h"
-#include "IntValidation.h"
-#include "MiniGames.h"
+#include "../pet/PetsASCII.h"
+#include "../util/IntValidation.h"
+#include "Minigames.h"
 #include "PetStatsTable.h"
 #include "StartScreen.h"
 using namespace std;

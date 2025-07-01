@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Pet.h"
+#include "../pet/Pet.h"
 using namespace std;
 
 void PrintBarStat(const string &label, int value, int maxValue = 100) //generates a bar that represents the atributes of pet

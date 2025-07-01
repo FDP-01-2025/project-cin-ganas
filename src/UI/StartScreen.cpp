@@ -3,8 +3,8 @@
 using namespace std;
 #include "StartScreen.h"
 #include "CreditsScreen.h"
-#include "IntValidation.h"
-#include "SavingSystem.h"
+#include "../util/IntValidation.h"
+#include "../util/SavingSystem.h"
 #include "CreatePetScreen.h"
 #include "MainMenu.h"
 

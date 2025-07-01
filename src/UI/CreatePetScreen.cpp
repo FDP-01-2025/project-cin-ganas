@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
-#include "Pet.h"
-#include "IntValidation.h"
-#include "SavingSystem.h"
+#include "../pet/Pet.h"
+#include "../util/IntValidation.h"
+#include "../util/SavingSystem.h"
 #include "MainMenu.h"
 
 // This script is in order to create a new pet

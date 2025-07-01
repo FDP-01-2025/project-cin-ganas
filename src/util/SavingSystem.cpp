@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include "Pet.h"
+#include "../pet/Pet.h"
 using namespace std;
 
 void Save(const Pet &p) // writes into a txt file the pet's variables

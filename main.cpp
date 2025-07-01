@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
-#include "src/StartScreen.h"
-#include "src/Pet.h"
+#include "src/UI/StartScreen.h"
+#include "src/pet/Pet.h"
 
 main()
 {
