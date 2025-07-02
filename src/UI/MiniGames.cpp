@@ -5,6 +5,7 @@
 #include "../util/SavingSystem.h"
 #include "../minigames/TriviaUCA.h"
 #include "../minigames/ArrangeSequence.h"
+#include "../minigames/ArrangeWord.h"
 using namespace std;
 
 void MiniGames() // shows the mini game menu
@@ -53,7 +54,7 @@ Selecciona una Opcion (1-5):
         {
         case 1:
         {
-            // ArrangeWord();
+            playArrangeWord();
             break;
         }
 
