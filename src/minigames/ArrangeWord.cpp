@@ -23,6 +23,8 @@ string desordenarPalabra(const string& palabraOriginal) {
 void playArrangeWord() {
     system("CLS");
 
+    // Titulo del juego en ASCII
+
     cout << R"(
                                 
                               /$$$$$$                  /$$                               /$$          
@@ -42,10 +44,14 @@ void playArrangeWord() {
     cout << "                       Bienvenido al juego Ordena la palabra           \n";
     cout << "        +-------------------------------------------------------------+\n";
 
+    // Indicacion breve del juego 
+
     cout << "        +----------------------------------------------------------------------------+\n";
     cout << "         En este juego tenes que adivinar palabras o frases que identifiquen a la UCA \n";
     cout << "        +----------------------------------------------------------------------------+\n";
     
+    // El usuario debe elegir el nivel de dificultad del juego
+
     cout << endl;
     cout << "        +-----------------------------+" << endl;
     cout << "        | Selecciona un nivel:        |" << endl;
@@ -57,6 +63,10 @@ void playArrangeWord() {
 
     char jugarDeNuevo = 's';
 
+    // Clasificacion de las palabras en los niveles de dificultad 
+
+    //Nivel Facil 
+
     vector<PalabraPista> nivelFacil = {
         {"UCA", "El nombre de una de las universidades mas reconocidas del pais"},
         {"ICAS", "Donde los salones tienen aire acondicionado"},
@@ -66,6 +76,8 @@ void playArrangeWord() {
         {"Gatos", "Son animales que andan por todo el campus de la universidad y caminan en cuatro patas"},
         {"Libros", "\"Necesito prestar un ... de la biblioteca\""}
     };
+
+    //Nivel Medio
 
     vector<PalabraPista> nivelMedio = {
         {"Las Terrazas", "\"Dicen que los capuchinos que venden en .... son buenos\""},
@@ -79,6 +91,8 @@ void playArrangeWord() {
         {"Carnet", "\"Mire le voy a dictar mi numero de ...\""}
     };
 
+    // Nivel Dificil
+    
     vector<PalabraPista> nivelDificil = {
         {"Mercaduca", "Productos de estudiantes emprendedores"},
         {"Catedraticos", "Son los encargados de nuestra educacion"},
@@ -176,7 +190,7 @@ void playArrangeWord() {
     cout << "        +--------------------------------------+\n";
 }
 
-// Función principal
+// Funciones principales para ejecutarlo correctamente
 int main() {
     playArrangeWord();
     return 0;
