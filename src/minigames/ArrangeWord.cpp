@@ -21,7 +21,41 @@ string desordenarPalabra(const string& palabraOriginal) {
 }
 
 void playArrangeWord() {
-    srand(time(0));
+    system("CLS");
+
+    cout << R"(
+                                
+                              /$$$$$$                  /$$                               /$$          
+                             /$$__  $$                | $$                              | $$          
+                            | $$  \ $$  /$$$$$$   /$$$$$$$  /$$$$$$  /$$$$$$$   /$$$$$$ | $$  /$$$$$$ 
+                            | $$  | $$ /$$__  $$ /$$__  $$ /$$__  $$| $$__  $$ |____  $$| $$ /$$__  $$
+                            | $$  | $$| $$  \__/| $$  | $$| $$$$$$$$| $$  \ $$  /$$$$$$$| $$| $$  \ $$
+                            | $$  | $$| $$      | $$  | $$| $$_____/| $$  | $$ /$$__  $$| $$| $$  | $$
+                            |  $$$$$$/| $$      |  $$$$$$$|  $$$$$$$| $$  | $$|  $$$$$$$| $$|  $$$$$$/
+                             \______/ |__/       \_______/ \_______/|__/  |__/ \_______/|__/ \______/ 
+                                                                          
+                                                                              
+    )" << endl;
+
+    cout << endl;
+    cout << "        +-------------------------------------------------------------+\n";
+    cout << "                       Bienvenido al juego Ordena la palabra           \n";
+    cout << "        +-------------------------------------------------------------+\n";
+
+    cout << "        +----------------------------------------------------------------------------+\n";
+    cout << "         En este juego tenes que adivinar palabras o frases que identifiquen a la UCA \n";
+    cout << "        +----------------------------------------------------------------------------+\n";
+    
+    cout << endl;
+    cout << "        +-----------------------------+" << endl;
+    cout << "        | Selecciona un nivel:        |" << endl;
+    cout << "        |  1. Facil                   |" << endl;
+    cout << "        |  2. Intermedio              |" << endl;
+    cout << "        |  3. Dificil                 |" << endl;
+    cout << "        +-----------------------------+" << endl;
+    cout << endl;
+
+    char jugarDeNuevo = 's';
 
     vector<PalabraPista> nivelFacil = {
         {"UCA", "El nombre de una de las universidades mas reconocidas del pais"},
@@ -41,7 +75,7 @@ void playArrangeWord() {
         {"Sultana", "\"Ey tengo ganas de Wendy's, salgamos por la .... que queda mas cerca\""},
         {"Ardillas", "Son animales que siempre se ven en los arboles"},
         {"Pericos", "Son animales que solo los ven y los escuchan los que madrugan"},
-        {"Gradas", "\"Puy6a ya me canse de subir tantas ....\""},
+        {"Gradas", "\"Puya ya me canse de subir tantas ....\""},
         {"Carnet", "\"Mire le voy a dictar mi numero de ...\""}
     };
 
@@ -57,16 +91,11 @@ void playArrangeWord() {
         {"Hola mundo", "Frase que conoce todo informatico"}
     };
 
-    cout << "Bienvenido al juego Ordena la palabra" << endl;
-    cout << "En este juego tenes que adivinar palabras o frases que identifican a la UCA" << endl;
-
-    char jugarDeNuevo = 's';
-
     while (jugarDeNuevo == 's' || jugarDeNuevo == 'S') {
         bool continuarRonda = true;
 
         while (continuarRonda) {
-            cout << "Selecciona un nivel de dificultad para esta palabra:" << endl;
+            cout << "\nSelecciona un nivel de dificultad para esta palabra:" << endl;
             cout << "1. Facil" << endl;
             cout << "2. Medio" << endl;
             cout << "3. Dificil" << endl;
@@ -85,7 +114,9 @@ void playArrangeWord() {
             } else if (nivel == 3) {
                 palabrasSeleccionadas = nivelDificil;
             } else {
-                cout << "Opcion no valida. Se usara nivel medio por defecto." << endl;
+                cout << "        +------------------------------------------------+\n";
+                cout << "                         Opcion no valida                 \n";
+                cout << "        +------------------------------------------------+\n";
                 palabrasSeleccionadas = nivelMedio;
             }
 
@@ -98,20 +129,33 @@ void playArrangeWord() {
 
             string desordenada = desordenarPalabra(soloLetras);
 
-            cout << "Adivina la palabra o frase con estas letras: " << desordenada << endl;
-            cout << "Pista: " << actual.pista << endl;
+            cout << "        +-------------------------------------------------------------+\n";
+            cout << "                Adivina la palabra o frase con estas letras:           \n";
+            cout << "                      --> " << desordenada << "\n";
+            cout << "        +-------------------------------------------------------------+\n";
 
-            cout << "Tu respuesta: ";
+            cout << "        +-------------------------------------------------------------+\n";
+            cout << "                      Pista: " << actual.pista << "\n";
+            cout << "        +-------------------------------------------------------------+\n";
+
+            cout << "\nTu respuesta: ";
             string intento;
             getline(cin, intento);
 
             if (intento == actual.palabra) {
-                cout << "Excelente, adivinaste la palabra!" << endl;
+                cout << "        +-------------------------------------------------------------+\n";
+                cout << "                          Respuesta Correcta!                         \n";
+                cout << "        +-------------------------------------------------------------+\n";
             } else {
-                cout << "Incorrecto. La palabra era: " << actual.palabra << endl;
+                cout << "        +-------------------------------------------------------------+\n";
+                cout << "                         Respuesta Incorrecta                         \n";
+                cout << "        +-------------------------------------------------------------+\n";
+                cout << "        +-------------------------------------------------------------+\n";
+                cout << "                    La palabra era: " << actual.palabra << "\n";
+                cout << "        +-------------------------------------------------------------+\n";
             }
 
-            cout << "Queres intentar con otra palabra?: ";
+            cout << "\n¿Queres intentar con otra palabra?: ";
             string respuesta;
             getline(cin, respuesta);
             if (respuesta.empty() || (respuesta[0] != 's' && respuesta[0] != 'S')) {
@@ -119,7 +163,7 @@ void playArrangeWord() {
             }
         }
 
-        cout << "Queres jugar otra vez desde el principio?: ";
+        cout << "\n¿Queres jugar otra vez desde el principio?: ";
         string respuesta;
         getline(cin, respuesta);
         if (respuesta.empty() || (respuesta[0] != 's' && respuesta[0] != 'S')) {
@@ -127,10 +171,12 @@ void playArrangeWord() {
         }
     }
 
-    cout << "Gracias por jugar" << endl;
+    cout << "        +--------------------------------------+\n";
+    cout << "                   Gracias por jugar!           \n";
+    cout << "        +--------------------------------------+\n";
 }
 
-// Esta es la funcion principal que se necesita para compilar correctamente
+// Función principal
 int main() {
     playArrangeWord();
     return 0;
