@@ -4,6 +4,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <random>
+#include <limits> // Para validar entrada
 
 using namespace std;
 
@@ -35,8 +36,6 @@ void playArrangeWord() {
                             | $$  | $$| $$      | $$  | $$| $$_____/| $$  | $$ /$$__  $$| $$| $$  | $$
                             |  $$$$$$/| $$      |  $$$$$$$|  $$$$$$$| $$  | $$|  $$$$$$$| $$|  $$$$$$/
                              \______/ |__/       \_______/ \_______/|__/  |__/ \_______/|__/ \______/ 
-                                                                          
-                                                                              
     )" << endl;
 
     cout << endl;
@@ -44,14 +43,14 @@ void playArrangeWord() {
     cout << "                       Bienvenido al juego Ordena la palabra           \n";
     cout << "        +-------------------------------------------------------------+\n";
 
-    // Indicacion breve del juego 
+    // Descripcion breve del juego 
 
     cout << "        +----------------------------------------------------------------------------+\n";
     cout << "         En este juego tenes que adivinar palabras o frases que identifiquen a la UCA \n";
     cout << "        +----------------------------------------------------------------------------+\n";
-    
-    // El usuario debe elegir el nivel de dificultad del juego
 
+    // Niveles de dificultad que tendra que elegir el usuario
+    
     cout << endl;
     cout << "        +-----------------------------+" << endl;
     cout << "        | Selecciona un nivel:        |" << endl;
@@ -63,10 +62,9 @@ void playArrangeWord() {
 
     char jugarDeNuevo = 's';
 
-    // Clasificacion de las palabras en los niveles de dificultad 
+    // Clasificacion de la palabras en los niveles de dificultad
 
-    //Nivel Facil 
-
+    // Nivel Facil
     vector<PalabraPista> nivelFacil = {
         {"UCA", "El nombre de una de las universidades mas reconocidas del pais"},
         {"ICAS", "Donde los salones tienen aire acondicionado"},
@@ -77,7 +75,7 @@ void playArrangeWord() {
         {"Libros", "\"Necesito prestar un ... de la biblioteca\""}
     };
 
-    //Nivel Medio
+    // Nivel Medio
 
     vector<PalabraPista> nivelMedio = {
         {"Las Terrazas", "\"Dicen que los capuchinos que venden en .... son buenos\""},
@@ -91,8 +89,8 @@ void playArrangeWord() {
         {"Carnet", "\"Mire le voy a dictar mi numero de ...\""}
     };
 
-    // Nivel Dificil
-    
+    // Nivel Dificil 
+
     vector<PalabraPista> nivelDificil = {
         {"Mercaduca", "Productos de estudiantes emprendedores"},
         {"Catedraticos", "Son los encargados de nuestra educacion"},
@@ -109,29 +107,33 @@ void playArrangeWord() {
         bool continuarRonda = true;
 
         while (continuarRonda) {
-            cout << "\nSelecciona un nivel de dificultad para esta palabra:" << endl;
-            cout << "1. Facil" << endl;
-            cout << "2. Medio" << endl;
-            cout << "3. Dificil" << endl;
-            cout << "Ingresa 1, 2 o 3: ";
-
             int nivel;
-            cin >> nivel;
-            cin.ignore();
+            while (true) {
+                cout << "\nSelecciona un nivel de dificultad para esta palabra:" << endl;
+                cout << "1. Facil" << endl;
+                cout << "2. Medio" << endl;
+                cout << "3. Dificil" << endl;
+                cout << "Ingresa 1, 2 o 3: ";
+
+                if (cin >> nivel && (nivel >= 1 && nivel <= 3)) {
+                    cin.ignore(); // Limpia el salto de línea 
+                    break; // Entrada valida
+                } else {
+                    cin.clear(); // Limpia estado de error
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Descarta linea incorrecta
+                    cout << "        +--------------------------------------------------+\n";
+                    cout << "           Entrada  no valida. Por favor ingresa 1, 2 o 3   \n";
+                    cout << "        +--------------------------------------------------+\n";
+                }
+            }
 
             vector<PalabraPista> palabrasSeleccionadas;
-
             if (nivel == 1) {
                 palabrasSeleccionadas = nivelFacil;
             } else if (nivel == 2) {
                 palabrasSeleccionadas = nivelMedio;
-            } else if (nivel == 3) {
-                palabrasSeleccionadas = nivelDificil;
             } else {
-                cout << "        +------------------------------------------------+\n";
-                cout << "                         Opcion no valida                 \n";
-                cout << "        +------------------------------------------------+\n";
-                palabrasSeleccionadas = nivelMedio;
+                palabrasSeleccionadas = nivelDificil;
             }
 
             PalabraPista actual = palabrasSeleccionadas[rand() % palabrasSeleccionadas.size()];
@@ -190,7 +192,8 @@ void playArrangeWord() {
     cout << "        +--------------------------------------+\n";
 }
 
-// Funciones principales para ejecutarlo correctamente
+// Funciones principales para que se ejecute correctamente
+
 int main() {
     playArrangeWord();
     return 0;
