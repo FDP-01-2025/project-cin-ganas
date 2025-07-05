@@ -68,7 +68,7 @@ void MainMenu(Pet &p)
         case 4:
         {
             system("cls");
-            ShowPetStatsTable(p.pet, p.name, p.happiness, p.energy, p.hunger);
+            ShowPetStatsTable(p.pet, p.name, p.happiness, p.energy, p.hunger, p.coins);
             break;
         }
         case 5:
