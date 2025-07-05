@@ -11,6 +11,7 @@ void Save(const Pet &p) // writes into a txt file the pet's variables
     savefile << p.happiness << "\n";
     savefile << p.energy << "\n";
     savefile << p.hunger << "\n";
+    savefile << p.coins << "\n";
     savefile << (p.isAlive ? 1 : 0) << "\n";
     savefile.close();
 }
@@ -24,6 +25,7 @@ Pet Load() // reads from the txt file the pet's stats
     savefile >> p.happiness;
     savefile >> p.energy;
     savefile >> p.hunger;
+    savefile >> p.coins;
     savefile >> p.isAlive;
 
     savefile.close();
