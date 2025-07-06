@@ -10,6 +10,8 @@
 #include "StartScreen.h"
 #include "../util/SavingSystem.h"
 #include "FoodMenu.h"
+#include "SleepOption.h"
+
 using namespace std;
 
 void MainMenu(Pet &p)
@@ -56,7 +58,7 @@ void MainMenu(Pet &p)
         case 2:
         {
             system("cls");
-            // Sleep options
+            SleepOption(p);
             break;
         }
         case 3:
