@@ -38,11 +38,13 @@ void ShowInstruction(const string& texto, int numero, int total) {
 void ShowInstructions() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpia buffer inicial
 
-    ShowInstruction("Instruccion 1: Memoriza los numeros que se muestran por unos segundos.", 1, 5);
-    ShowInstruction("Instruccion 2: Se borraran de la pantalla y deberas ingresarlos uno por uno.", 2, 5);
-    ShowInstruction("Instruccion 3: Si todos los numeros coinciden, ganas.", 3, 5);
-    ShowInstruction("Instruccion 4: Si fallas en al menos uno, pierdes.", 4, 5);
-    ShowInstruction("Instruccion 5: Usa solo numeros enteros. No ingreses letras ni simbolos.", 5, 5);
+    ShowInstruction("Instruccion 1: En el menu ingresar una opcion 1. para jugar, 2. para ver instrucciones, 3.para ver los creditos .", 1, 6);
+    ShowInstruction("Instruccion 2: Al presionar 1, aparecera un buho , el cual dara diversas opciones , como son: Jugar , Dormir , Comer, Ver estadisticas y salir , cada una tiene su respectivo numero para seleccionarlo. .", 2, 6);
+    ShowInstruction("Instruccion 3: Al escoger la opcion de jugar , nos apareceran diversas opciones de minijuegos en los cuales podremos ganar monedas.", 3, 6);
+    ShowInstruction("Instruccion 4: Al escoger la opcion de comer , aparecera un catalogo con las diversas comida que se le pueden dar a la mascota , con el incremento que ofrece y el precio..", 4, 6);
+    ShowInstruction("Instruccion 5: Al escoger la opcion de estadisticas , podremos ver las estdisticas de nuestra mascota : Tipo , Nombre , Felicidad , Energia , Hambre , Monedas.", 5, 6);
+    ShowInstruction("Instruccion 6: Al escoger la opcion de dormir... .", 5, 6);
+    
 
     system("cls");
     cout << "Fin de las instrucciones.\n";
