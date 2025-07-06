@@ -95,3 +95,12 @@ bool FileExist()
     ifstream file("save.txt"); // Checks if the file "save.txt" exist
     return file.good();        // Returns true if the file exists
 }
+
+// Add Coins and save them locally
+void addCoins(int coins)
+{
+    Pet pet = Load();
+    pet.coins += coins;
+    Save(pet);
+    cout << "Has Ganado " << coins << " Monedas\n";
+}

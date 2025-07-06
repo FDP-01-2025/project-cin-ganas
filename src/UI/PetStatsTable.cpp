@@ -5,7 +5,7 @@ using namespace std;
 /**
  * This script will show the pet stats in a table
  */
-void ShowPetStatsTable(string pet, string name, int happiness, int energy, int hunger)
+void ShowPetStatsTable(string pet, string name, int happiness, int energy, int hunger, int coins)
 {
     cout << R"(
         ________              __                      __  __              __      __                               
@@ -26,5 +26,6 @@ void ShowPetStatsTable(string pet, string name, int happiness, int energy, int h
     cout << "                                              - Felicidad: " << happiness << "\n";
     cout << "                                              - Energia: " << energy << "\n";
     cout << "                                              - Hambre: " << hunger << "\n";
+    cout << "                                              - Monedas: " << coins << "\n";
     cout << "                                            +-------------------------------+\n";
 }

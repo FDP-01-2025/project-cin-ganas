@@ -5,6 +5,7 @@ using namespace std;
 #include <windows.h>
 #include "TriviaUCA.h"
 #include "../util/IntValidation.h"
+#include "../util/SavingSystem.h"
 
 // Define the Struct that each question will have
 struct TriviaQuestion
@@ -156,5 +157,24 @@ void TriviaUCA()
     cout << "\n                   +--------------------------------------------------------------------------------+\n";
     cout << "                   Puntaje Final: " << score << " Preguntas Contestadas Correctamente.\n";
     cout << "                   +--------------------------------------------------------------------------------+\n\n";
+
+    // Add Coint based on the user's performance
+    if (score == 3)
+    {
+        addCoins(7);
+    }
+    else if (score == 2)
+    {
+        addCoins(5);
+    }
+    else if (score == 1)
+    {
+        addCoins(3);
+    }
+    else
+    {
+        addCoins(0);
+    }
+
     Sleep(5000);
 }
