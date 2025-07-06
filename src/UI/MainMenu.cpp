@@ -17,6 +17,7 @@ using namespace std;
 void MainMenu(Pet &p)
 {
     Save(p);
+    checkPetDeath(p);
     int option;
     system("cls");
     if (p.pet == "Squirrel")

@@ -55,24 +55,28 @@ Selecciona una Opcion (1-5):
         {
         case 1:
         {
+            system("cls");
             playArrangeWord();
             break;
         }
 
         case 2:
         {
+            system("cls");
             TriviaUCA();
             break;
         }
 
         case 3:
         {
+            system("cls");
             PlayArrangeSequence();
             break;
         }
 
         case 4:
         {
+            system("cls");
             TicTacToe();
             break;
         }

@@ -2,6 +2,7 @@
 #include <fstream>
 #include <ctime>
 #include "../pet/Pet.h"
+#include "../UI/DeathScreen.h"
 using namespace std;
 
 void Save(const Pet &p) // writes into a txt file the pet's variables
@@ -99,4 +100,15 @@ void finishGame(int coins, int happiness, int hunger, int energy)
     cout << "Felicidad: +" << happiness << endl;
     cout << "Hambre: +" << hunger << endl;
     cout << "Energia: -" << energy << endl;
+}
+
+// Check if the pet has some attribute of 0
+void checkPetDeath(Pet &p)
+{
+    if (p.energy <= 0 || p.happiness <= 0 || p.hunger >= 100)
+    {
+        p.isAlive = false;
+        Save(p); // Save the pet as a death pet
+        showDeathScreen(p);
+    }
 }

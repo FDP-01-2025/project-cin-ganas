@@ -13,7 +13,7 @@ using namespace std;
 /**
  * This Script will show the Start Screen and it will serve as the handler for the Start Menu
  */
-int ShowStartScreen()
+void ShowStartScreen()
 {
     // Variables
     int userOption = 0;
@@ -51,7 +51,14 @@ Ingresa tu Opcion:
             if (FileExist())
             {
                 Pet savedPet = Load(); // Load saved pet
-                MainMenu(savedPet);    // Go to main menu
+                if (savedPet.isAlive == true)
+                {
+                    MainMenu(savedPet); // Go to main menu
+                }
+                else
+                {
+                    ShowCreatePetScreen(); // Create a new pet
+                }
             }
             else
             {
@@ -67,8 +74,9 @@ Ingresa tu Opcion:
             ShowCreditsScreen(); // Show credits screen
             break;
         case 4:
-            cout << "Saliendo del juego...\n";
-            return 0; // Exit function with return
+            cout << "Saliendo del juego...\n"; // Exit function with return
+            return;
+            break;
         default:
             cout << "Por Favor. Ingrese una Opcion Valida:\n";
             break;
