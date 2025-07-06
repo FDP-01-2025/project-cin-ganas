@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 using namespace std;
 #include "../pet/Pet.h"
 #include "../util/IntValidation.h"
@@ -104,10 +105,12 @@ void ShowCreatePetScreen()
     }
 
     createdPet.name = petName;
-    createdPet.happiness = 100;
-    createdPet.energy = 100;
-    createdPet.hunger = 0;
+    createdPet.happiness = 50;
+    createdPet.energy = 50;
+    createdPet.hunger = 50;
+    createdPet.coins = 15;
     createdPet.isAlive = true;
+    createdPet.last_saved = time(nullptr);
 
     // Save the struct in the .txt file
     Save(createdPet);

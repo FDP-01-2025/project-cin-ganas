@@ -15,6 +15,7 @@ struct Pet
     int hunger;
     int coins;
     bool isAlive;
+    long long last_saved;
 };
 
 #endif

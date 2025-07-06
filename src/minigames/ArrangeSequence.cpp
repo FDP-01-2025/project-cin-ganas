@@ -112,7 +112,7 @@ void PlayArrangeSequence()
     if (acerto)
     {
         cout << "\nMuy bien. Has salvado al buho y aprobado la clase.\n";
-        addCoins(7);
+        finishGame(7, 7, 3, 3);
     }
     else
     {
@@ -124,7 +124,7 @@ void PlayArrangeSequence()
             cout << numeros[i] << " ";
         }
         cout << endl;
-        addCoins(0);
+        finishGame(0, 0, 5, 5);
     }
 
     cout << "\nPresiona ENTER para volver al menu...";

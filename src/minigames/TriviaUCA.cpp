@@ -161,19 +161,19 @@ void TriviaUCA()
     // Add Coint based on the user's performance
     if (score == 3)
     {
-        addCoins(7);
+        finishGame(10, 10, 3, 3);
     }
     else if (score == 2)
     {
-        addCoins(5);
+        finishGame(7, 7, 5, 5);
     }
     else if (score == 1)
     {
-        addCoins(3);
+        finishGame(5, 5, 7, 7);
     }
     else
     {
-        addCoins(0);
+        finishGame(0, 0, 10, 10);
     }
 
     Sleep(5000);

@@ -38,18 +38,6 @@ Pet Load() // reads from the txt file the pet's stats
     long long seconds_passed = now - p.last_saved;
     int hours_passed = seconds_passed / 3600;
 
-    
-    if (!savefile.is_open()) {
-        cout << "No se encontró archivo de guardado, creando mascota nueva.\n";
-        p.isAlive = true;
-        p.hunger = 50;
-        p.energy = 50;
-        p.happiness = 50;
-        p.coins = 15;
-        p.last_saved = time(nullptr);
-        return p;
-    }
-
     if (hours_passed > 0)
     {
 
@@ -96,11 +84,19 @@ bool FileExist()
     return file.good();        // Returns true if the file exists
 }
 
-// Add Coins and save them locally
-void addCoins(int coins)
+// Add Coins and save them locally, increase the happiness and hunger, and dicrease the energy
+void finishGame(int coins, int happiness, int hunger, int energy)
 {
     Pet pet = Load();
+
+    // Increase the happiness and hunger, and dicrease the energy
     pet.coins += coins;
+    pet.happiness += happiness;
+    pet.hunger += hunger;
+    pet.energy -= energy;
     Save(pet);
     cout << "Has Ganado " << coins << " Monedas\n";
+    cout << "Felicidad: +" << happiness << endl;
+    cout << "Hambre: +" << hunger << endl;
+    cout << "Energia: -" << energy << endl;
 }

@@ -5,6 +5,6 @@
 void Save(const Pet &p);
 Pet Load();
 bool FileExist();
-void addCoins(int coins);
+void finishGame(int coins, int happiness, int hunger, int energy);
 
 #endif

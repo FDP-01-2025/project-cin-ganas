@@ -167,11 +167,11 @@ void playArrangeWord()
     // Score
     if (playerWon)
     {
-        addCoins(7);
+        finishGame(7, 7, 3, 3);
     }
     else
     {
-        addCoins(0);
+        finishGame(0, 0, 5, 5);
     }
 
     Sleep(5000);
