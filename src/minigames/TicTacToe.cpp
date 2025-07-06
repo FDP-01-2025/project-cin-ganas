@@ -1,5 +1,6 @@
 #include <iostream>
 #include <windows.h>
+#include "../util/IntValidation.h"
 using namespace std;
 
 string board[3][3] = {{"1", "2", "3"},
@@ -114,7 +115,7 @@ void TicTacToe()
     {
         DisplayBoard();
         cout << "\n\nJugador #" << CurrentPlayer() << ", escribe un numero: ";
-        cin >> num;
+        num = validateInt();
 
         if (num < 1 || num > 9)
         {
