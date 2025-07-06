@@ -29,7 +29,20 @@ void FoodMenu(Pet &p)
 
     while (option != 0)
     {
-        system("cls"); // Limpia la pantalla en cada iteración
+        system("cls"); // Clear screen
+
+        // Centered title
+        cout << R"(
+  ______                           __                                                   
+ /      \                         /  |                                                  
+/$$$$$$  |______    ______    ____$$ |       _____  ____    ______   _______   __    __ 
+$$ |_ $$//      \  /      \  /    $$ |      /     \/    \  /      \ /       \ /  |  /  |
+$$   |  /$$$$$$  |/$$$$$$  |/$$$$$$$ |      $$$$$$ $$$$  |/$$$$$$  |$$$$$$$  |$$ |  $$ |
+$$$$/   $$ |  $$ |$$ |  $$ |$$ |  $$ |      $$ | $$ | $$ |$$    $$ |$$ |  $$ |$$ |  $$ |
+$$ |    $$ \__$$ |$$ \__$$ |$$ \__$$ |      $$ | $$ | $$ |$$$$$$$$/ $$ |  $$ |$$ \__$$ |
+$$ |    $$    $$/ $$    $$/ $$    $$ |      $$ | $$ | $$ |$$       |$$ |  $$ |$$    $$/ 
+$$/      $$$$$$/   $$$$$$/   $$$$$$$/       $$/  $$/  $$/  $$$$$$$/ $$/   $$/  $$$$$$/  
+)" << endl;
 
         cout << R"(
         +--------+-------------+-----------------+--------+
@@ -93,15 +106,11 @@ void FoodMenu(Pet &p)
             break;
         }
 
-        // In case that a variable goes over the range
-        if (p.energy > 100)
-            p.energy = 100;
-        if (p.energy < 0)
-            p.energy = 0;
-        if (p.hunger > 100)
-            p.hunger = 100;
-        if (p.hunger < 0)
-            p.hunger = 0;
+        // Keep variables within bounds
+        if (p.energy > 100) p.energy = 100;
+        if (p.energy < 0) p.energy = 0;
+        if (p.hunger > 100) p.hunger = 100;
+        if (p.hunger < 0) p.hunger = 0;
 
         cout << "Le diste a tu mascota " << food.name << " por " << food.price << " monedas.\n";
         cout << "Te quedan " << p.coins << " monedas.\n";
