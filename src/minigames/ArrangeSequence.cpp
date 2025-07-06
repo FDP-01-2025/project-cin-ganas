@@ -1,15 +1,15 @@
-#include <iostream>  // Para entrada/salida
-#include <cstdlib>   // Para rand(), srand()
-#include <ctime>     // Para time()
-#include <windows.h> // Para Sleep()
-#include <limits>    // Para validacion de entrada
+#include <iostream>  // For input/output
+#include <cstdlib>   // For rand(), srand()
+#include <ctime>     // For time()
+#include <windows.h> // For Sleep()
+#include <limits>    // For input validation
 #include "ArrangeSequence.h"
 #include "../util/IntValidation.h"
 #include "../util/SavingSystem.h"
 
 using namespace std;
 
-// Muestra el titulo en ASCII del juego
+// Shows the ASCII title of the game
 void ShowArrangeSequenceTitle()
 {
     system("cls");
@@ -29,15 +29,15 @@ void ShowArrangeSequenceTitle()
 
     cout << "                                          Bienvenido a MEMO-OWL - Juego de Memoria\n"
          << endl;
-    Sleep(2000); // Espera para que el jugador lea
+    Sleep(2000); // Wait so the player can read
 }
 
-// Muestra la historia del buho y arte ASCII
+// Shows the owl's story and ASCII art
 void ShowOwlStory()
 {
     cout << R"(
                                                        __              __
-                                                       \ `-._......_.-` /
+                                                       \ `-._......_.-` / 
                                                         `.  '.    .'  .'
                                                          //  _`\/`_  \\
                                                         ||  /\O||O/\  ||
@@ -64,17 +64,17 @@ void ShowOwlStory()
     system("cls");
 }
 
-// Juego principal
+// Main game
 void PlayArrangeSequence()
 {
-    const int N = 4;  // Cantidad de numeros
-    int numeros[N];   // Numeros generados
-    int respuesta[N]; // Respuesta del usuario
+    const int N = 4;  // Number of numbers
+    int numeros[N];   // Generated numbers
+    int respuesta[N]; // User's answers
 
-    ShowArrangeSequenceTitle(); // Titulo
-    ShowOwlStory();             // Historia
+    ShowArrangeSequenceTitle(); // Title
+    ShowOwlStory();             // Story
 
-    srand(time(0)); // Semilla
+    srand(time(0)); // Seed
 
     cout << "                                      ------------------------------------------------------\n";
     cout << "                                                Memoriza los siguientes " << N << " numeros:\n";
@@ -89,7 +89,7 @@ void PlayArrangeSequence()
     cout << "\n                                      ------------------------------------------------------\n";
     cout << endl;
 
-    Sleep(5000);
+    Sleep(5000); // Wait before clearing screen
     system("cls");
 
     cout << "Ingresa los " << N << " numeros que viste, uno por uno:\n";
@@ -112,11 +112,10 @@ void PlayArrangeSequence()
     if (acerto)
     {
         cout << "\nMuy bien. Has salvado al buho y aprobado la clase.\n";
-        finishGame(7, 7, 3, 3);
+        addCoins(7);
     }
     else
     {
-        ;
         cout << "\nFallaste. El buho reprobo.\n";
         cout << "Los numeros correctos eran: ";
         for (int i = 0; i < N; i++)
@@ -124,7 +123,7 @@ void PlayArrangeSequence()
             cout << numeros[i] << " ";
         }
         cout << endl;
-        finishGame(0, 0, 5, 5);
+        addCoins(0);
     }
 
     cout << "\nPresiona ENTER para volver al menu...";
