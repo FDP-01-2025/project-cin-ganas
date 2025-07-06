@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 using namespace std;
+
 #include "StartScreen.h"
 #include "CreditsScreen.h"
 #include "../util/IntValidation.h"
@@ -12,9 +13,8 @@ using namespace std;
 /**
  * This Script will show the Start Screen and it will serve as the handler for the Start Menu
  */
-void ShowStartScreen()
+int ShowStartScreen()
 {
-
     // Variables
     int userOption = 0;
 
@@ -35,6 +35,7 @@ void ShowStartScreen()
                                           | 1. Jugar                  |
                                           | 2. Ver Instrucciones      |
                                           | 3. Ver Creditos           |
+                                          | 4. Salir                  |
                                           +---------------------------+
 
 Ingresa tu Opcion: 
@@ -47,32 +48,31 @@ Ingresa tu Opcion:
         switch (userOption)
         {
         case 1:
-            // Verify if there's some progress
             if (FileExist())
             {
-                // Load the data and go to the game screen
-                Pet savedPet = Load(); // Loading the saved Pet
-                MainMenu(savedPet);    // Go to the main menu with the saved pet
+                Pet savedPet = Load(); // Load saved pet
+                MainMenu(savedPet);    // Go to main menu
             }
             else
             {
-                // Create a new Pet
-                ShowCreatePetScreen();
+                ShowCreatePetScreen(); // Create a new pet
             }
             break;
         case 2:
-            // Go to the Instructions Screen
             system("cls");
-            ShowInstructions();
+            ShowInstructions(); // Show instructions screen
             break;
         case 3:
-            // Go to the Credits Screen
             system("cls");
-            ShowCreditsScreen();
+            ShowCreditsScreen(); // Show credits screen
             break;
+        case 4:
+            cout << "Saliendo del juego...\n";
+            return 0; // Exit function with return
         default:
             cout << "Por Favor. Ingrese una Opcion Valida:\n";
             break;
         }
-    } while (userOption < 1 || userOption > 2);
+
+    } while (true);
 }
