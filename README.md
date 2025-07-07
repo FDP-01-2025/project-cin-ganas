@@ -27,11 +27,11 @@ A continuación, se detalla la idea general de la jugabilidad. Se explica desde 
 2. En dado caso sea la 1ra vez que el jugador abre el juego se mostrará una ventana donde se le pedirá crear su mascota, el jugador deberá escoger la mascota e ingresar el nombre de esta. En dado caso que no sea la 1ra vez, directamente el jugador podrá acceder al menú principal.
 
 3. En el menú principal el jugador tendrá diferentes opciones:
-4. Jugar a los minijuegos: Muestra el menú con los diferentes minijuegos
-5. Dormir: Hace descansar a la mascota.
-6. Comer: Dirige al jugador a una tienda con diferentes productos.
-7. Ver Estadísticas: Muestra los detalles de la mascota (Energía, hambre, felicidad)
-8. Salir: Guarda el progreso y regresa a la pantalla de inicio.
+   - Jugar a los minijuegos: Muestra el menú con los diferentes minijuegos
+   - Dormir: Hace descansar a la mascota.
+   - Comer: Dirige al jugador a una tienda con diferentes productos.
+   - Ver Estadísticas: Muestra los detalles de la mascota (Energía, hambre, felicidad)
+   - Salir: Guarda el progreso y regresa a la pantalla de inicio.
 
 **Minijuegos**
 
@@ -78,6 +78,16 @@ El efecto que el realizar la acción de dormir en la mascota es el siguiente:
 | Energía      | +5         |
 | Hambre       | +5         |
 | Felicidad    | -5         |
+
+4. Como has podido observar cada decisión que tomes tendrá un efecto en tu mascota. No debes dejar que la energía o la felicidad llegue a 0, o que el hambre llegue a 100. En dado caso que así sea tu mascota morirá, mostrándote así el juego una pantalla de muerte con las estadísticas finales de tu mascota.
+
+5. Debes tener en cuenta que, si dejas de jugar a TamaUCA por un tiempo, estarás descuidando a tu mascota, lo que provocará que sus atributos se vean afectados negativamente.
+
+### Imágenes o mockups del juego
+
+A continuación, se presentan las imágenes y mockups que ilustran el diseño visual del juego. Estos representan las distintas pantallas con las que el jugador interactuará. El diseño de los Mockups fue realizado en Figma y se puede acceder por medio del siguiente link.
+
+**Link de los Mockups en Figma:** [Figma](https://www.figma.com/design/rKoGT6qOcsnSLGgRMj7Fq5/FDP?node-id=0-1&t=7InViNUeDhsNxthC-1)
 
 ## Equipo
 
