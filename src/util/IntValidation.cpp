@@ -2,7 +2,6 @@
 #include <limits>
 using namespace std;
 
-using namespace std;
 
 int validateInt() { //validates integer input
     int value;

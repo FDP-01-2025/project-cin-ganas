@@ -8,10 +8,16 @@
 #include "Minigames.h"
 #include "PetStatsTable.h"
 #include "StartScreen.h"
+#include "../util/SavingSystem.h"
+#include "FoodMenu.h"
+#include "SleepOption.h"
+
 using namespace std;
 
 void MainMenu(Pet &p)
 {
+    Save(p);
+    checkPetDeath(p);
     int option;
     system("cls");
     if (p.pet == "Squirrel")
@@ -53,19 +59,19 @@ void MainMenu(Pet &p)
         case 2:
         {
             system("cls");
-            // Sleep options
+            SleepOption(p);
             break;
         }
         case 3:
         {
             system("cls");
-            // Food options
+            FoodMenu(p);
             break;
         }
         case 4:
         {
             system("cls");
-            ShowPetStatsTable(p.pet, p.name, p.happiness, p.energy, p.hunger);
+            ShowPetStatsTable(p.pet, p.name, p.happiness, p.energy, p.hunger, p.coins);
             break;
         }
         case 5:

@@ -1,52 +1,61 @@
 #include <iostream>
 #include <windows.h>
 #include <limits>
-#include "Instructions.h"
 
 using namespace std;
 
-// Espera a que el usuario presione ENTER
-void WaitForEnter() {
+void WaitForEnter()
+{
     cout << "\nPresiona ENTER para continuar...";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get();
 }
 
-// Muestra encabezado centrado con espacios
-void PrintCenteredAscii() {
+void PrintCenteredAscii()
+{
     cout << R"(
-               __                        __                                      __      __                               
-              /  |                      /  |                                    /  |    /  |                              
-              $$/  _______    _______  _$$ |_     ______   __    __   _______  _$$ |_   $$/   ______   _______    _______ 
-              /  |/       \  /       |/ $$   |   /      \ /  |  /  | /       |/ $$   |  /  | /      \ /       \  /       |
-              $$ |$$$$$$$  |/$$$$$$$/ $$$$$$/   /$$$$$$  |$$ |  $$ |/$$$$$$$/ $$$$$$/   $$ |/$$$$$$  |$$$$$$$  |/$$$$$$$/ 
-              $$ |$$ |  $$ |$$      \   $$ | __ $$ |  $$/ $$ |  $$ |$$ |        $$ | __ $$ |$$ |  $$ |$$ |  $$ |$$      \ 
-              $$ |$$ |  $$ | $$$$$$  |  $$ |/  |$$ |      $$ \\__$$ |$$ \\_____   $$ |/  |$$ |$$ \\__$$ |$$ |  $$ | $$$$$$  |
-              $$ |$$ |  $$ |/     $$/   $$  $$/ $$ |      $$    $$/ $$       |  $$  $$/ $$ |$$    $$/ $$ |  $$ |/     $$/ 
-              $$/ $$/   $$/ $$$$$$$/     $$$$/  $$/        $$$$$$/   $$$$$$$/    $$$$/  $$/  $$$$$$/  $$/   $$/ $$$$$$$/  
-    )" << endl;
+$$$$$$\                       $$\                                             $$\                                         
+\_$$  _|                      $$ |                                            \__|                                        
+  $$ |  $$$$$$$\   $$$$$$$\ $$$$$$\    $$$$$$\  $$\   $$\  $$$$$$$\  $$$$$$$\ $$\  $$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$$\ 
+  $$ |  $$  __$$\ $$  _____|\_$$  _|  $$  __$$\ $$ |  $$ |$$  _____|$$  _____|$$ |$$  __$$\ $$  __$$\ $$  __$$\ $$  _____|
+  $$ |  $$ |  $$ |\$$$$$$\    $$ |    $$ |  \__|$$ |  $$ |$$ /      $$ /      $$ |$$ /  $$ |$$ |  $$ |$$$$$$$$ |\$$$$$$\  
+  $$ |  $$ |  $$ | \____$$\   $$ |$$\ $$ |      $$ |  $$ |$$ |      $$ |      $$ |$$ |  $$ |$$ |  $$ |$$   ____| \____$$\ 
+$$$$$$\ $$ |  $$ |$$$$$$$  |  \$$$$  |$$ |      \$$$$$$  |\$$$$$$$\ \$$$$$$$\ $$ |\$$$$$$  |$$ |  $$ |\$$$$$$$\ $$$$$$$  |
+\______|\__|  \__|\_______/    \____/ \__|       \______/  \_______| \_______|\__| \______/ \__|  \__| \_______|\_______/                                                                                                                                                                                                                                                                                                                                                                           
+)" << endl;
 }
 
-// Muestra una instruccion
-void ShowInstruction(const string& texto, int numero, int total) {
+void ShowInstruction(const string &text, int num, int total)
+{
     system("cls");
     PrintCenteredAscii();
-    cout << "\nRegla " << numero << " de " << total << ":\n";
-    cout << texto << endl;
+    cout << "\nRegla " << num << " de " << total << ":\n";
+    cout << text << endl;
     WaitForEnter();
 }
 
-void ShowInstructions() {
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpia buffer inicial
-
-    ShowInstruction("Instruccion 1: Memoriza los numeros que se muestran por unos segundos.", 1, 5);
-    ShowInstruction("Instruccion 2: Se borraran de la pantalla y deberas ingresarlos uno por uno.", 2, 5);
-    ShowInstruction("Instruccion 3: Si todos los numeros coinciden, ganas.", 3, 5);
-    ShowInstruction("Instruccion 4: Si fallas en al menos uno, pierdes.", 4, 5);
-    ShowInstruction("Instruccion 5: Usa solo numeros enteros. No ingreses letras ni simbolos.", 5, 5);
+void ShowInstructions()
+{
+    ShowInstruction("Instruccion 1: En el menu, ingresa una opcion: 1 para jugar, 2 para ver instrucciones, 3 para ver los creditos.", 1, 6);
+    ShowInstruction("Instruccion 2: Al presionar 1, aparecera un buho que dara diversas opciones: Jugar, Dormir, Comer, Ver estadisticas y Salir. Cada una tiene su respectivo numero para seleccionarla.", 2, 6);
+    ShowInstruction("Instruccion 3: Al escoger la opcion de Jugar, aparecera una lista de minijuegos en los cuales podras ganar monedas.", 3, 6);
+    ShowInstruction("Instruccion 4: Al escoger la opcion de Comer, aparecera un catalogo con las comidas disponibles, mostrando el incremento que ofrecen y su precio.", 4, 6);
+    ShowInstruction("Instruccion 5: En la opcion de Estadisticas podras ver los datos de tu mascota: Tipo, Nombre, Felicidad, Energia, Hambre y Monedas.", 5, 6);
+    ShowInstruction("Instruccion 6: Al escoger la opcion de dormir, tu mascota descansara y recuperara energia.", 6, 6);
 
     system("cls");
-    cout << "Fin de las instrucciones.\n";
-    cout << "Presiona ENTER para volver al menu...";
+    cout << "+------------------------------------------+\n";
+    cout << "|      Fin de las instrucciones.           |\n";
+    cout << "|   Presiona ENTER para volver al menu.    |\n";
+    cout << "+------------------------------------------+\n";
+
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.get();
+
+    Sleep(2000);
     system("cls");
+
+    return;
 }
+

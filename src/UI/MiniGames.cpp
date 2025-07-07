@@ -6,6 +6,7 @@
 #include "../minigames/TriviaUCA.h"
 #include "../minigames/ArrangeSequence.h"
 #include "../minigames/ArrangeWord.h"
+#include "../minigames/TicTacToe.h"
 using namespace std;
 
 void MiniGames() // shows the mini game menu
@@ -33,7 +34,7 @@ void MiniGames() // shows the mini game menu
                                                | 1. Ordenar la palabra.    |
                                                | 2. Trivia UCA.            |
                                                | 3. Ordenar la secuencia.  |
-                                               | 4. Explorar el campus.    |
+                                               | 4. Tres en raya.          |
                                                | 5. Regresar a tu TamaUCA. |
                                                +---------------------------+
 
@@ -54,25 +55,29 @@ Selecciona una Opcion (1-5):
         {
         case 1:
         {
+            system("cls");
             playArrangeWord();
             break;
         }
 
         case 2:
         {
+            system("cls");
             TriviaUCA();
             break;
         }
 
         case 3:
         {
+            system("cls");
             PlayArrangeSequence();
             break;
         }
 
         case 4:
         {
-            // Game4();
+            system("cls");
+            TicTacToe();
             break;
         }
 
