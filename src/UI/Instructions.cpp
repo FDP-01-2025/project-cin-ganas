@@ -1,13 +1,13 @@
 #include <iostream>
 #include <windows.h>
 #include <limits>
+#include "./StartScreen.h"
 
 using namespace std;
 
 void WaitForEnter()
 {
     cout << "\nPresiona ENTER para continuar...";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cin.get();
 }
 
@@ -44,18 +44,11 @@ void ShowInstructions()
     ShowInstruction("Instruccion 6: Al escoger la opcion de dormir, tu mascota descansara y recuperara energia.", 6, 6);
 
     system("cls");
-    cout << "+------------------------------------------+\n";
-    cout << "|      Fin de las instrucciones.           |\n";
-    cout << "|   Presiona ENTER para volver al menu.    |\n";
-    cout << "+------------------------------------------+\n";
+    cout << "                                                     +------------------------------------------+\n";
+    cout << "                                                     |      Fin de las instrucciones.           |\n";
+    cout << "                                                     +------------------------------------------+\n";
 
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cin.get();
+    WaitForEnter();
 
-    Sleep(2000);
-    system("cls");
-
-    return;
+    ShowStartScreen();
 }
-
