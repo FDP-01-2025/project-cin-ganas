@@ -40,14 +40,14 @@ void playArrangeWord() {
 
     cout << endl;
     cout << "        +-------------------------------------------------------------+" << endl;
-    cout << "                       Bienvenido al juego Ordena la palabra" << endl;
+    cout << "                       Bienvenido al juego Ordena la palabra"            << endl;
     cout << "        +-------------------------------------------------------------+" << endl;
 
     // Descripcion breve del juego 
 
-    cout << "        +----------------------------------------------------------------------------+" << endl;
-    cout << "         En este juego tenes que adivinar palabras o frases que identifiquen a la UCA" << endl;
-    cout << "        +----------------------------------------------------------------------------+" << endl;
+    cout << "        +-------------------------------------------------------------------------------+" << endl;
+    cout << "          En este juego tenes que adivinar palabras o frases que identifiquen a la UCA"    << endl;
+    cout << "        +-------------------------------------------------------------------------------+" << endl;
 
     // Niveles de dificultad que tendra que elegir el usuario
 
@@ -62,7 +62,7 @@ void playArrangeWord() {
 
     char jugarDeNuevo = 's';
 
-    //Clasificacion de la palabra en los niveles de dificultad
+    // Clasificacion de la palabra en los niveles de dificultad
 
     // Nivel Facil
 
@@ -73,7 +73,7 @@ void playArrangeWord() {
         {"UNO", "\"Ey anda pedi prestado el ... para jugar\""},
         {"Jenga", "\"ojala en este juego llegues a botar la torre\""},
         {"Gatos", "Son animales que andan por todo el campus de la universidad y caminan en cuatro patas"},
-        {"Libros", "\"Necesito prestar un ... de la biblioteca\""}
+        {"Libros", "\"Necesito prestar unos ... de la biblioteca\""}
     };
 
     // Nivel medio
@@ -104,11 +104,16 @@ void playArrangeWord() {
         {"Hola mundo", "Frase que conoce todo informatico"}
     };
 
+    // Funcion para evitar que se repitan las palabras 
+
+    vector<PalabraPista> copiaFacil, copiaMedio, copiaDificil;
+
     while (jugarDeNuevo == 's' || jugarDeNuevo == 'S') {
         bool continuarRonda = true;
 
         while (continuarRonda) {
             int nivel;
+
             while (true) {
                 cout << "Selecciona un nivel de dificultad para esta palabra:" << endl;
                 cout << "1. Facil" << endl;
@@ -122,18 +127,35 @@ void playArrangeWord() {
                 } else {
                     cin.clear(); // Limpia estado de error
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "        +--------------------------------------------------+" << endl;
-                    cout << "           Entrada  no valida. Por favor ingresa 1, 2 o 3" << endl;
-                    cout << "        +--------------------------------------------------+" << endl;
+                    cout << "        +--------------------------------------------------------------+" << endl;
+                    cout << "            Respuesta ingresada invalida. Por favor ingresa 1, 2 o 3"     << endl;
+                    cout << "        +--------------------------------------------------------------+" << endl;
                 }
             }
 
-            vector<PalabraPista> palabrasSeleccionadas;
-            if (nivel == 1) palabrasSeleccionadas = nivelFacil;
-            else if (nivel == 2) palabrasSeleccionadas = nivelMedio;
-            else palabrasSeleccionadas = nivelDificil;
+            vector<PalabraPista>* original;
+            vector<PalabraPista>* copia;
 
-            PalabraPista actual = palabrasSeleccionadas[rand() % palabrasSeleccionadas.size()];
+            if (nivel == 1) {
+                original = &nivelFacil;
+                copia = &copiaFacil;
+            } else if (nivel == 2) {
+                original = &nivelMedio;
+                copia = &copiaMedio;
+            } else {
+                original = &nivelDificil;
+                copia = &copiaDificil;
+            }
+
+            // Se reincia si la copia temporal esta vacia
+            if (copia->empty()) {
+                *copia = *original;
+                shuffle(copia->begin(), copia->end(), default_random_engine(random_device{}()));
+            }
+
+            // Elimina la palabra actual
+            PalabraPista actual = copia->back();
+            copia->pop_back();
 
             string soloLetras;
             for (char c : actual.palabra) if (c != ' ') soloLetras += c;
@@ -141,7 +163,7 @@ void playArrangeWord() {
             string desordenada = desordenarPalabra(soloLetras);
 
             cout << "        +-------------------------------------------------------------+" << endl;
-            cout << "                Adivina la palabra o frase con estas letras:" << endl;
+            cout << "                Adivina la palabra o frase con estas letras:"            << endl;
             cout << "                      --> " << desordenada << endl;
             cout << "        +-------------------------------------------------------------+" << endl;
 
@@ -150,6 +172,7 @@ void playArrangeWord() {
             cout << "        +-------------------------------------------------------------+" << endl;
 
             cout << "Tu respuesta: ";
+
             string intento;
             getline(cin, intento);
 
