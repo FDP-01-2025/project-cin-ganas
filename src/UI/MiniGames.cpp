@@ -32,9 +32,9 @@ void MiniGames() // shows the mini game menu
                                                             
                                                                                            
                                                +---------------------------+
-                                               | 1. Ordenar la palabra.    |
+                                               | 1. UCAGrama.              |
                                                | 2. Trivia UCA.            |
-                                               | 3. Ordenar la secuencia.  |
+                                               | 3. Memo-Owl.              |
                                                | 4. Tres en raya.          |
                                                | 5. Regresar a tu TamaUCA. |
                                                +---------------------------+

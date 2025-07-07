@@ -16,25 +16,11 @@
 
 using namespace std;
 
-void CheckIfDead(Pet &p)
-{
-    if (!p.isAlive)
-    {
-        system("cls");
-        cout << "\nTu mascota ha fallecido por descuido :(\n";
-        cout << "Presiona cualquier tecla para regresar al menú principal.\n";
-        remove("save.txt");
-        system("pause");
-        ShowStartScreen();
-        return;
-    }
-}
-
 void MainMenu(Pet &p)
 {
     Save(p);
 
-    CheckIfDead(p);
+    checkPetDeath(p);
 
     int option;
 
@@ -67,11 +53,11 @@ void MainMenu(Pet &p)
         cout << "+-------------------------------+\n";
 
         PrintBarStat("Hambre    ", p.hunger, 100);
-        cout<<endl;
+        cout << endl;
         PrintBarStat("Felicidad ", p.happiness, 100);
-        cout<<endl;
+        cout << endl;
         PrintBarStat("Energia   ", p.energy, 100);
-        cout<<endl;
+        cout << endl;
 
         cout << "Escribe lo que quieres hacer: " << endl;
         cout << R"(
@@ -90,39 +76,39 @@ void MainMenu(Pet &p)
         case 1:
             MiniGames();
             Save(p);
-            CheckIfDead(p);
+            checkPetDeath(p);
             system("pause");
             break;
         case 2:
             system("cls");
             SleepOption(p);
             Save(p);
-            CheckIfDead(p);
+            checkPetDeath(p);
             system("pause");
             break;
         case 3:
             system("cls");
             FoodMenu(p);
             Save(p);
-            CheckIfDead(p);
+            checkPetDeath(p);
             system("pause");
             break;
         case 4:
             system("cls");
             ShowPetStatsTable(p.pet, p.name, p.happiness, p.energy, p.hunger, p.coins);
-            CheckIfDead(p);
+            checkPetDeath(p);
             system("pause");
             break;
         case 5:
             cout << "Saliendo..." << endl;
             Save(p);
-            CheckIfDead(p);
+            checkPetDeath(p);
             system("pause");
             break;
         default:
             cout << "Ingresa una opcion valida." << endl;
             Save(p);
-            CheckIfDead(p);
+            checkPetDeath(p);
             system("pause");
             break;
         }

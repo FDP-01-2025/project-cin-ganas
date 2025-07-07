@@ -69,7 +69,7 @@ void ShowCreatePetScreen()
             do
             {
                 cout << "\nIngresa un nombre para tu mascota:\n";
-                getline(cin, petName); // getline cuz the name may contain spaces
+                getline(cin, petName); // getline because the name may contain spaces
 
                 // If the petName is empty
                 if (petName.empty())

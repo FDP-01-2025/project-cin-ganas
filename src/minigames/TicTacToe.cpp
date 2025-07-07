@@ -1,6 +1,7 @@
 #include <iostream>
 #include <windows.h>
 #include "../util/IntValidation.h"
+#include "../util/SavingSystem.h"
 using namespace std;
 
 string board[3][3] = {{"1", "2", "3"},
@@ -129,7 +130,17 @@ void TicTacToe()
         if (CheckWinner())
         {
             DisplayBoard();
-            cout << "\nJugador" << (turn % 2 == 0 ? "O" : "X") << " gana!\n";
+            string winner = (turn % 2 == 0) ? "O" : "X";
+            cout << "\nJugador " << winner << " gana!\n";
+
+            if (winner == "X")
+            {
+                finishGame(7, 7, 3, 3);
+            }
+            else
+            {
+                finishGame(0, 0, 5, 5);
+            }
             break;
         }
 
@@ -141,5 +152,5 @@ void TicTacToe()
         }
     }
 
-    Sleep(3000);
+    Sleep(5000);
 }

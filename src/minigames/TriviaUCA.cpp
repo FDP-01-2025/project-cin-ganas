@@ -38,16 +38,12 @@ bool isTheQuestionRepeated(int askedQuestions[], int numberOfAskedQuestions, int
 {
     for (int i = 0; i < numberOfAskedQuestions; i++)
     {
-        // Verify that the asked question isn't on the array of the random asked questions.
         if (askedQuestions[i] == indexOfRandomQuestion)
         {
-            return true;
-        }
-        else
-        {
-            return false;
+            return true; // Found a repeat, stop and say yes
         }
     }
+    return false; // Checked all, no repeats found
 }
 
 // Main function, it will handle the trivia's logic. This mini-game will just ask 3 random questions btw

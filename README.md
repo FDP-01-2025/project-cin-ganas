@@ -2,7 +2,7 @@
 
 # Proyecto de C++ - [TamaUCA]
 
-![TamaUCA](./img/Banner.png)
+![TamaUCA](./readme-assets/Banner.png)
 
 ## Descripción del Proyecto
 
@@ -12,7 +12,7 @@ Bienvenido a **TamaUCA**! Un juego al estilo de un clásico _Tamagotchi_ inspira
 
 El juego esta ambientado en el campus de la _Universidad Centroamericana “José Simeón Cañas”_, esto se puede evidenciar tanto con las mascotas, las cuales representan animales representativos de la universidad, por ejemplo, el búho, el cual forma parte de la identidad de la UCA, la ardilla y el perico, los cuales son animales que se pueden encontrar fácilmente por el campus, como con los minijuegos.
 
-Por ejemplo, en _Trivia UCA_ se responden preguntas sobre la universidad; en Ordena la palabra se deben organizar letras para formar términos relacionados con la UCA; y en _Memo-Owl_, el jugador ayuda al búho a superar una materia de su carrera, integrando así elementos propios de la vida estudiantil universitaria.
+Por ejemplo, en _Trivia UCA_ se responden preguntas sobre la universidad; en UCAGrama se deben organizar letras para formar términos relacionados con la UCA; y en _Memo-Owl_, el jugador ayuda al búho a superar una materia de su carrera, integrando así elementos propios de la vida estudiantil universitaria.
 
 ### Mecánica Principal
 
@@ -35,7 +35,7 @@ A continuación, se detalla la idea general de la jugabilidad. Se explica desde 
 
 **Minijuegos**
 
-- **Ordenar la Palabra:** Tienes que ordenar la palabra en base a una serie de letras desordenadas.
+- **UCAGrama:** Tienes que ordenar la palabra en base a una serie de letras desordenadas.
 
 | **Resultado** | **Efecto**                                                      |
 | ------------- | --------------------------------------------------------------- |
@@ -57,6 +57,13 @@ A continuación, se detalla la idea general de la jugabilidad. Se explica desde 
 | ------------- | --------------------------------------------------------------- |
 | **Victoria**  | Monedas: +7 <br> Felicidad: +7 <br> Hambre: +3 <br> Energía: -3 |
 | **Derrota**   | Monedas: +0 <br> Felicidad: +0 <br> Hambre: +7 <br> Energía: -7 |
+
+- **Tres en raya:** El dueño del juego es el jugador con las X. Gana forma una línea de X’s.
+
+| **Resultado**         | **Efecto**                                                      |
+| --------------------- | --------------------------------------------------------------- |
+| **Gana el Jugador X** | Monedas: +7 <br> Felicidad: +7 <br> Hambre: +3 <br> Energía: -3 |
+| **Gana el Jugador 0** | Monedas: +0 <br> Felicidad: +0 <br> Hambre: +5 <br> Energía: -5 |
 
 **Comer**
 Los diferentes productos disponibles que se encuentran en la tienda son:
@@ -83,11 +90,31 @@ El efecto que el realizar la acción de dormir en la mascota es el siguiente:
 
 5. Debes tener en cuenta que, si dejas de jugar a TamaUCA por un tiempo, estarás descuidando a tu mascota, lo que provocará que sus atributos se vean afectados negativamente.
 
+### Aplicación de los temas vistos
+
+A continuación, se detalla la implementación de los distintos contenidos vistos dentro del juego.
+
+| **Contenido**                                    | **Descripción**                                                                                                  | **Ejemplo**                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Variables y tipos de datos**                   | Se utilizan variables para almacenar y controlar los distintos atributos de la mascota.                          | `string pet; string name;`                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **Estructuras condicionales (if, else, switch)** | Permiten tomar decisiones en el juego, como verificar si la mascota ha muerto o seleccionar opciones del menú.   | `cpp<br>if (p.energy <= 0 && p.happiness <= 0 && p.hunger >= 100) {<br>    p.isAlive = false;<br>    Save(p);<br>    showDeathScreen(p);<br>}`                                                                                                                                                                                                                                                                                                  |
+| **Ciclos (for, while, do while)**                | Se utilizaron para facilitar la repetición de procesos, por ejemplo, durante la validación de entradas de datos. | `cpp<br>do {<br>    cout << "Ingresa un nombre para tu mascota:\n";<br>    getline(cin, petName);<br>    if (petName.empty()) {<br>        cout << "Por favor. Ingresa un nombre para tu mascota\n";<br>    }<br>} while (petName.empty());`                                                                                                                                                                                                    |
+| **Funciones**                                    | Se utilizaron para modularizar el proyecto, separando funcionalidades como jugar, dormir, ver estadísticas, etc. | `cpp<br>void SleepOption(Pet &p) {<br>    p.energy += 5;<br>    p.hunger += 5;<br>    p.happiness -= 5;<br><br>    if (p.energy > 100) p.energy = 100;<br>    if (p.energy < 0) p.energy = 0;<br>    if (p.hunger > 100) p.hunger = 100;<br>    if (p.hunger < 0) p.hunger = 0;<br>    if (p.happiness > 100) p.happiness = 100;<br>    if (p.happiness < 0) p.happiness = 0;<br><br>    Save(p);<br>    Sleep(5000);<br>    MainMenu(p);<br>}` |
+| **Manejo de archivos**                           | Se usó para guardar y recuperar el progreso del juego mediante la escritura y lectura de un archivo `.txt`.      | `cpp<br>void Save(const Pet &p) {<br>    ofstream savefile("save.txt");<br>    savefile << p.pet << "\n";<br>    // ... otros datos<br>    savefile.close();<br>}`                                                                                                                                                                                                                                                                              |
+| **Manejo de errores**                            | Se utilizó para validar entradas de usuario, asegurando que los datos ingresados sean correctos.                 | `cpp<br>int validateInt() {<br>    while (true) {<br>        cin >> value;<br>        if (cin.fail()) {<br>            cin.clear();<br>            cin.ignore(numeric_limits<streamsize>::max(), '\n');<br>            cout << "Entrada invalida.";<br>        } else {<br>            cin.ignore(numeric_limits<streamsize>::max(), '\n');<br>            return value;<br>        }<br>    }<br>}`                                            |
+| **Interfaz por consola**                         | Toda la interacción se realiza por consola, usando arte ASCII para mejorar la experiencia visual del jugador.    | ``````                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+
 ### Imágenes o mockups del juego
 
 A continuación, se presentan las imágenes y mockups que ilustran el diseño visual del juego. Estos representan las distintas pantallas con las que el jugador interactuará. El diseño de los Mockups fue realizado en Figma y se puede acceder por medio del siguiente link.
 
 **Link de los Mockups en Figma:** [Figma](https://www.figma.com/design/rKoGT6qOcsnSLGgRMj7Fq5/FDP?node-id=0-1&t=7InViNUeDhsNxthC-1)
+
+### Flujograma general del proyecto
+
+A continuación, se muestra el flujograma general del proyecto.
+
+![Flujograma general del proyecto](./readme-assets/Flujograma.png)
 
 ## Equipo
 
@@ -115,6 +142,8 @@ A continuación, se presentan las imágenes y mockups que ilustran el diseño vi
    git clone https://github.com/FDP-01-2025/project-cin-ganas.git
    ```
 
+````
+
 2. Ingresa en el folder del proyecto
 
    ```bash
@@ -131,3 +160,4 @@ A continuación, se presentan las imágenes y mockups que ilustran el diseño vi
    ```bash
    ./main
    ```
+````
