@@ -143,8 +143,6 @@ A continuación, se muestra el flujograma general del proyecto.
    git clone https://github.com/FDP-01-2025/project-cin-ganas.git
    ```
 
-````
-
 2. Ingresa en el folder del proyecto
 
    ```bash
@@ -161,4 +159,3 @@ A continuación, se muestra el flujograma general del proyecto.
    ```bash
    ./main
    ```
-````
