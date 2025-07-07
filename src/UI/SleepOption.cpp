@@ -29,15 +29,16 @@ void SleepOption(Pet &p)
                                     +----------------------+-------------------------+
                                     |   Atributo           |    Efecto               |
                                     +----------------------+-------------------------+
-                                    |   Energia            |   +6                    |
+                                    |   Energia            |   +5                    |
                                     |   Hambre             |   +5                    |
+                                    |   Felicidad          |   -5                    |
                                     +----------------------+-------------------------+
     )" << endl;
 
     // Apply sleep effects
-    p.energy += 6;
+    p.energy += 5;
     p.hunger += 5;
-    p.happiness -= 10;
+    p.happiness -= 5;
 
     // Clamp values between 0 and 100
     if (p.energy > 100)
