@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <limits>
 #include "MainMenu.h"
+#include "../pet/Pet.h"
 #include "../util/SavingSystem.h"
 #include "../minigames/TriviaUCA.h"
 #include "../minigames/ArrangeSequence.h"
@@ -55,28 +56,24 @@ Selecciona una Opcion (1-5):
         {
         case 1:
         {
-            system("cls");
             playArrangeWord();
             break;
         }
 
         case 2:
         {
-            system("cls");
             TriviaUCA();
             break;
         }
 
         case 3:
         {
-            system("cls");
             PlayArrangeSequence();
             break;
         }
 
         case 4:
         {
-            system("cls");
             TicTacToe();
             break;
         }

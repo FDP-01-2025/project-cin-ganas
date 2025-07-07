@@ -53,7 +53,7 @@ void GetRowColumn(int value, int &row, int &column)
     }
     else
     {
-        cout << "Cell already taken.\n";
+        cout << "Celda ya ocupada.\n";
     }
 }
 
@@ -113,8 +113,9 @@ void TicTacToe()
 
     while (true)
     {
+        system("cls");
         DisplayBoard();
-        cout << "\n\nJugador #" << CurrentPlayer() << ", escribe un numero: ";
+        cout << "\n\nJugador " << CurrentPlayer() << ", escribe un numero: ";
         num = validateInt();
 
         if (num < 1 || num > 9)
@@ -140,5 +141,5 @@ void TicTacToe()
         }
     }
 
-    Sleep(5000);
+    Sleep(3000);
 }

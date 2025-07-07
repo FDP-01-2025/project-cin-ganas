@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstdlib>
+#include <iomanip>
 #include "../pet/Pet.h"
 #include "../util/SavingSystem.h"
 #include "CreatePetScreen.h"
@@ -61,23 +62,26 @@ void MainMenu(Pet &p)
         else
             ShowParrot();
 
-        cout << "-------------------------------" << endl;
-        cout << "       " << p.name << endl;
-        cout << "-------------------------------" << endl;
+        cout << "\n\n+-------------------------------+\n";
+        cout << "| Nombre: " << setw(24) << left << p.name << "|\n";
+        cout << "+-------------------------------+\n";
 
         PrintBarStat("Hambre    ", p.hunger, 100);
+        cout<<endl;
         PrintBarStat("Felicidad ", p.happiness, 100);
+        cout<<endl;
         PrintBarStat("Energia   ", p.energy, 100);
+        cout<<endl;
 
         cout << "Escribe lo que quieres hacer: " << endl;
         cout << R"(
-                +---------------------+
-                | 1. Jugar            |
-                | 2. Dormir           |
-                | 3. Comer            |
-                | 4. Ver estadisticas |
-                | 5. Salir            |
-                +---------------------+)"
+                    +---------------------+
+                    | 1. Jugar            |
+                    | 2. Dormir           |
+                    | 3. Comer            |
+                    | 4. Ver estadisticas |
+                    | 5. Salir            |
+                    +---------------------+)"
              << endl;
 
         option = validateInt();
