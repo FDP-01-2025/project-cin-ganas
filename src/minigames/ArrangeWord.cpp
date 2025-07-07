@@ -212,10 +212,3 @@ void playArrangeWord() {
     cout << "                   Gracias por jugar!"            << endl;
     cout << "        +--------------------------------------+" << endl;
 }
-
-// Main functions to execute correctly
-
-int main() {
-    playArrangeWord();
-    return 0;
-}
