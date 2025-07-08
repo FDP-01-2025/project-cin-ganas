@@ -75,7 +75,7 @@ Ingresa tu Opcion:
             break;
         case 4:
             cout << "Saliendo del juego...\n"; // Exit function with return
-            return;
+            exit(0);
             break;
         default:
             cout << "Por Favor. Ingrese una Opcion Valida:\n";

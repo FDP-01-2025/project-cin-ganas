@@ -105,6 +105,16 @@ A continuación, se detalla la implementación de los distintos contenidos visto
 | **Manejo de errores**                            | Se utilizó para validar entradas de usuario, asegurando que los datos ingresados sean correctos.                                                                                                                                        | ![Manejo de errores](./readme-assets/7.png)                            |
 | **Interfaz por consola**                         | Toda la interacción se realiza por consola, usando arte ASCII para mejorar la experiencia visual del jugador.                                                                                                                           | ![Interfaz por consola](./readme-assets/8.png)                         |
 
+### Consideraciones
+
+| **Requisito**          | **Especificación**                                                                                                                                                                                |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Sistema Operativo**  | Windows 10 o superior                                                                                                                                                                             |
+| **Compilador**         | [MinGW](https://sourceforge.net/projects/mingw/files/)                                                                                                                                            |
+| **Editor de Código**   | [Microsoft Visual Studio Code](https://code.visualstudio.com/)                                                                                                                                    |
+| **Consola / Terminal** | Command Prompt o PowerShell en Windows                                                                                                                                                            |
+| **Bibliotecas**        | Bibliotecas estándar de C++: `<iostream>`, `<fstream>`, `<string>`, `<vector>`, `<algorithm>`, `<ctime>`, `<cstdlib>`, `<iomanip>`, `<random>`, `<limits>`; Bibliotecas de Windows: `<windows.h>` |
+
 ### Imágenes o mockups del juego
 
 A continuación, se presentan las imágenes y mockups que ilustran el diseño visual del juego. Estos representan las distintas pantallas con las que el jugador interactuará. El diseño de los Mockups fue realizado en Figma y se puede acceder por medio del siguiente link.
