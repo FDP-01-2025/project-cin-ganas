@@ -55,6 +55,7 @@ void GetRowColumn(int value, int &row, int &column)
     else
     {
         cout << "Celda ya ocupada.\n";
+        system("pause");
     }
 }
 
@@ -96,8 +97,11 @@ void TicTacToe()
 {
     int num;
 
-    // TITLE
-    cout << R"(
+
+    while (true)
+    {
+        system("cls");
+        cout << R"(
        __                                                                                                          
       /  |                                                                                                         
      _$$ |_     ______    ______    _______         ______   _______          ______   ______   __    __   ______  
@@ -110,11 +114,7 @@ void TicTacToe()
                                                                                                /  \__$$ |          
                                                                                                $$    $$/           
                                                                                                 $$$$$$/            
-)" << endl;
-
-    while (true)
-    {
-        system("cls");
+    )" << endl;
         DisplayBoard();
         cout << "\n\nJugador " << CurrentPlayer() << ", escribe un numero: ";
         num = validateInt();
@@ -122,6 +122,7 @@ void TicTacToe()
         if (num < 1 || num > 9)
         {
             cout << "Movimiento invalido. Prueba otro\n";
+            system("pause");
             continue;
         }
 
