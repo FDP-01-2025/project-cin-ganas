@@ -139,10 +139,7 @@ A continuación, se muestra el flujograma general del proyecto.
 2. **Nombre completo:** Mauricio Rene Rodas Lazo
    **Carnet:** 00019625
 
-3. **Nombre completo:** Amy Giselle Torres Ventura
-   **Carnet:** 00085025
-
-4. **Nombre completo:** Diego Sebastian Villacorta Villalobos
+3. **Nombre completo:** Diego Sebastian Villacorta Villalobos
    **Carnet:** 00177525
 
 ## Instrucciones de Ejecución

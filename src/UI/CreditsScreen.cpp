@@ -31,7 +31,6 @@ void ShowCreditsScreen()
                         | Integrantes:                                                 |
                         | - 00087525 | Diego Roberto Olivares Ortega.                  |
                         | - 00019625 | Mauricio Rene Rodas Lazo.                       |
-                        | - 00085025 | Amy Giselle Torres Ventura.                     |
                         | - 00177525 | Diego Sebastian Villacorta Villalobos.          |
                         +--------------------------------------------------------------+
     
